@@ -1,0 +1,47 @@
+
+<div class="row" *ngIf="list">
+    <div class="column" *ngFor="let item of list" >
+      <div class="card">
+            <tr style="text-align: center;">
+                <td >
+          <h3>Date : <span style="color: crimson;">{{item.date | date }}</span></h3> 
+                </td>
+        <td>
+          <h3>Movie Name : <span style="color: crimson;">{{item.movieName }}</span></h3>
+        </td>
+        <td>
+          <h3>Theater Name : <span style="color: crimson;">{{item.cinemaName }}</span></h3>
+        </td>
+        </tr>
+        <tr style="text-align: center;">
+          <td>
+            <h3>Show Time : <span style="color: crimson;">{{item.startAt}}</span></h3>
+          </td>
+            <td>
+          <h3>Seats Booked : <span style="color: crimson;">{{item.seats}}</span></h3>
+        </td>
+        <td>
+          <h3>Total Amount : <span style="color: crimson;">{{item.total | currency:'INR'}}</span></h3>
+        </td>
+        </tr>
+        </div>
+  </div>
+  </div>
+
+
+<!-- <table *ngIf="list" id="record" >
+    <tr>
+      <th>Date</th>
+      <th>Movie Name</th>
+      <th>Cinema Name</th>
+      <th>No of Seats</th>
+      <th>Total</th>
+    </tr>
+     <tr *ngFor="let item of list" style="text-align:center">
+        <td>{{item.date | date}}</td>
+        <td>{{item.movieName | titlecase}}</td>
+        <td>{{item.cinemaName | titlecase}}</td>
+        <td>{{item.seats}}</td>
+        <td>{{item.total | currency:'INR'}}</td>
+     </tr>
+   </table> -->

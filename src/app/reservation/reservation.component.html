@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Form</title>
+</head>
+<h3 style="color: black;">Remaining Seats: {{availableseats}}</h3>
+<h3 style="color: black;">Ticket Price: {{price | currency:'INR'}}</h3>
+<body>
+
+    <div class="theatre">
+  
+        <div class="cinema-seats left" >
+          <div class="cinema-row row-1" *ngFor="let it of columns">
+            <div class="seat" style="color:white;font-size: small;" *ngFor="let item of rows"  (click)="select(item,it,true)" [class.black]="status[item][it]" [class.active]="status[item][it]" >{{item+""+it}}</div>
+          </div>
+        </div>
+           
+      </div>
+
+      <h1>Screen this way</h1>
+
+
+<!-- 
+    <div class="container">
+        <h2 style="color: black;">Booking</h2>
+        <h3 style="color: black;">Remaining Seats: {{availableseats}}</h3>
+        <h3 style="color: black;">Ticket Price: {{price | currency:'INR'}}</h3>
+        <form action="" #userForm="ngForm">
+
+
+            <input type="number" name="seats" min="1" id="seats" placeholder="No of Seats" required #seats>
+
+            <div class="btns">
+                <button type="submit" (click)="book(seats.value)">Book</button>
+            </div>
+
+        </form>
+    </div> -->
+
+  
+</body>
+<button id="book" (click)="book()">Book</button>
+</html>

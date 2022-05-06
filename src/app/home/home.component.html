@@ -1,0 +1,76 @@
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+<form>
+<div class="wrap">
+    <div class="search">
+       <input type="text" class="searchTerm" placeholder=" Search your city" #sch required>
+       <input type="date" class="dateTerm" #dat required>
+       <button type="submit" class="searchButton" (click)="search(sch.value,dat.value)">
+        <i class="uil uil-search"></i>
+      </button>
+    </div>
+ </div>
+</form>
+
+
+<div class="row" *ngIf="cinemas.length>0; else elseblock">
+  <div class="column" *ngFor="let cinema of cinemas">
+    <div class="card">
+      <img src={{cinema.image}} alt="Avatar" style="width:100%">
+      <div class="container" style="text-align: center;">
+        <h1><a (click)="movieDetail(cinema.movieId)" >{{cinema.movieName | titlecase}}</a></h1> 
+        <h3>Theater Name: <a (click)="cinemaDetail(cinema.theaterId)" >{{cinema.theaterName | titlecase}}</a></h3> 
+        <h3>Show Time : <span>{{cinema.startAt}}</span></h3>
+        <h3>Available Seats: <span>{{cinema.seatsAvailability}}</span></h3>
+        <h3>Location: <span>{{cinema.city | titlecase}}</span></h3>
+        <button id="book" (click)="reserve(cinema.theaterId,cinema.seatsAvailability,cinema.ticketPrice,cinema.rows,cinema.columns)">Book</button>
+      </div>
+    </div>
+</div>
+</div>
+
+<ng-template #elseblock >
+  <h1 style="text-align: center;">No Shows Available</h1>
+</ng-template>
+
+<!-- <div class="row" *ngIf="cinemas" >
+  <div class="column" *ngFor="let cinema of cinemas">
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="https://media.istockphoto.com/vectors/movie-time-vector-illustration-cinema-poster-concept-on-red-round-vector-id911590226?k=20&m=911590226&s=612x612&w=0&h=HlJtSKF-fLsKFy1QJ-EVnxXkktBKNS-3jUQPXsSasYs=" alt="Avatar" style="width:300px;height:300px;">
+    </div>
+    <div class="flip-card-back">
+      <h1><a (click)="movieDetail(cinema.movieId)" >{{cinema.movieName | titlecase}}</a></h1> 
+      <h3>Theater Name: <a (click)="cinemaDetail(cinema.theaterId)" >{{cinema.theaterName | titlecase}}</a></h3> 
+      <h3>Show Time : {{cinema.startAt}}</h3>
+      <h3>Available Seats: {{cinema.seatsAvailability}}</h3>
+      <h3>Location: {{cinema.city | titlecase}}</h3>
+      <button id="book" (click)="reserve(cinema.theaterId,cinema.movieId,cinema.startAt)">Book</button>
+    </div>
+  </div>
+</div>
+  </div>
+ 
+
+</div> -->
+
+ <!-- <table *ngIf="cinemas" id="cinema" >
+   <tr>
+     <th>No</th>
+     <th>Theater Name</th>
+     <th>Movie Name</th>
+     <th>Show Time</th>
+     <th>Available Seats</th>
+     <th>Location</th>
+     <th>Booking</th>
+   </tr>
+    <tr *ngFor="let cinema of cinemas;let i = index" style="text-align:center">
+      <td>{{i+1}}</td>
+      <td><a (click)="cinemaDetail(cinema.theaterId)" >{{cinema.theaterName | titlecase}}</a></td>
+      <td><a (click)="movieDetail(cinema.movieId)" >{{cinema.movieName | titlecase}}</a></td>
+      <td>{{cinema.startAt}}</td>
+      <td>{{cinema.seatsAvailability}}</td>
+      <td>{{cinema.city | titlecase}}</td>
+      <td><button id="book" (click)="reserve(cinema.theaterId,cinema.movieId,cinema.startAt)">Book</button></td>
+    </tr>
+  </table> -->

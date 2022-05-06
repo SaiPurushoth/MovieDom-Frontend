@@ -1,0 +1,61 @@
+<h1>Movie Details</h1>
+
+<div class="row" *ngIf="movieInformation">
+    <div class="column" >
+      <div class="card">
+        <img src={{movieInformation.image}} alt="Avatar" style="width:100%">
+        <div class="container" style="text-align: center;">
+          <h1>{{movieInformation.title | titlecase}}</h1> 
+          <h3>Movie Language : <span>{{movieInformation.language | titlecase }}</span></h3> 
+          <h3>Movie Genere : <span>{{movieInformation.genere | titlecase}}</span></h3>
+          <h3>Movie Director : <span>{{movieInformation.director | titlecase}}</span></h3>
+          <h3>Movie Cast : <span>{{movieInformation.cast | titlecase}}</span></h3>
+          <h3>Movie Description : <span>{{movieInformation.description | titlecase}}</span></h3>
+          <h3>Movie Duration (mins) : <span>{{movieInformation.duration}}</span></h3>
+          <h3>Movie ReleaseDate : <span>{{movieInformation.releaseDate | date}}</span></h3>
+        </div>
+      </div>
+  </div>
+  </div>
+
+
+
+
+
+
+
+<!-- <table *ngIf="movieInformation" id="movie" >
+
+     <tr style="text-align:center">
+        <td>Movie Name : </td>
+        <td>{{movieInformation.title | titlecase}}</td>
+      </tr>
+      <tr style="text-align:center">
+        <td>Movie Language : </td>
+        <td>{{movieInformation.language | titlecase }}</td>   
+     </tr>
+     <tr style="text-align:center">
+        <td>Movie Genere : </td>
+        <td>{{movieInformation.genere | titlecase}}</td>      
+     </tr>
+     <tr style="text-align:center">
+         <td>Movie Director : </td>
+         <td>{{movieInformation.director | titlecase}}</td>
+     </tr>
+     <tr style="text-align:center">
+        <td>Movie Cast : </td>
+        <td>{{movieInformation.cast | titlecase}}</td>
+    </tr>
+    <tr style="text-align:center">
+        <td>Movie Description : </td>
+        <td>{{movieInformation.description | titlecase}}</td>
+    </tr>
+    <tr style="text-align:center">
+        <td>Movie Duration (mins) : </td>
+        <td>{{movieInformation.duration}}</td>
+    </tr>
+    <tr style="text-align:center">
+        <td>Movie ReleaseDate : </td>
+        <td>{{movieInformation.releaseDate | date}}</td>
+    </tr>
+   </table> -->

@@ -1,0 +1,21 @@
+
+<h1>Cinema Details</h1>
+<table *ngIf="cinemaInformation" id="cinema" >
+
+     <tr style="text-align:center">
+        <td>Theater Name : </td>
+        <td>{{cinemaInformation.name | titlecase}}</td>
+      </tr>
+      <tr style="text-align:center">
+        <td>Ticket Price : </td>
+        <td>{{cinemaInformation.ticketPrice | currency:'INR'}}</td>   
+     </tr>
+     <tr style="text-align:center">
+        <td>City : </td>
+        <td>{{cinemaInformation.city | titlecase}}</td>      
+     </tr>
+     <tr style="text-align:center">
+         <td>Total Seats : </td>
+         <td>{{cinemaInformation.seats}}</td>
+     </tr>
+   </table>

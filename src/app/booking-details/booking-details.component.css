@@ -1,0 +1,62 @@
+#booking {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 2%;
+  }
+  
+  #booking td, #booking th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #booking tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #booking tr:hover {background-color: #ddd;}
+  
+  #booking th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: lightcoral;
+    color: white;
+  }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .container {
+    padding: 2px 16px;
+  }
+
+  .column {
+    float: left;
+    width:90%;
+    padding: 0 2px;
+    margin-bottom: 20px;
+    margin-left: 3.5%;
+  }
+  
+  .row {margin: 0 -5px;}
+  
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  } 

@@ -1,0 +1,237 @@
+/* body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    color: white;
+    padding-top: 8vh;
+}
+
+.container {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    background-color:lightcoral;
+    border-radius: 15px;
+    padding: 25px 10px;
+    box-shadow: 0 0 15px rgb(80, 79, 79);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+input {
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    margin: 5px;
+    text-align: center;
+    font-size: 18px;
+    color: black;
+    background-color: linen;
+}
+
+.btns {
+    margin: 15px auto;
+}
+
+button {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: none;
+    padding: 8px 30px;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 5px 25px;
+}
+
+button:hover {
+    background-color: darkblue;
+}
+
+p {
+    color: red;
+    text-align: center;
+    display: none;
+} */
+
+h1{
+    margin-top: 15%;
+    text-align: center;
+}
+body {
+    background:lightgray;
+    padding-top: 15vh;
+   padding-bottom: 5vh;
+  }
+  
+  .theatre {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 5%;
+  }
+  
+  .cinema-seats {
+    display: flex;
+  }
+  .cinema-seats .seat {
+    cursor: pointer;
+  }
+  .cinema-seats .seat:hover:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 7px;
+  }
+  .cinema-seats .seat.active:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 7px;
+  }
+  .cinema-seats .seat.blocked:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    border-radius: 7px;
+  }
+  
+  .left .cinema-row {
+    transform: skew(-15deg);
+    margin: 0 6px;
+  }
+  .left .seat {
+    width: 40px;
+    height: 55px;
+    border-radius: 7px;
+ 
+     background: linear-gradient(to top, #761818, #761818, #761818, #761818, #761818, #B54041, #F3686A); 
+    margin-bottom: 10px;
+    transform: skew(20deg);
+    margin-top: -32px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  }
+  .left .row-2 {
+    transform: skew(-13deg);
+  }
+  .left .row-2 .seat {
+    transform: skew(18deg);
+  }
+  .left .row-3 {
+    transform: skew(-12deg);
+  }
+  .left .row-3 .seat {
+    transform: skew(16deg);
+  }
+  .left .row-4 {
+    transform: skew(-11deg);
+  }
+  .left .row-4 .seat {
+    transform: skew(15deg);
+  }
+  .left .row-5 {
+    transform: skew(-10deg);
+  }
+  .left .row-5 .seat {
+    transform: skew(12deg);
+  }
+  .left .row-6 {
+    transform: skew(-9deg);
+  }
+  .left .row-6 .seat {
+    transform: skew(10deg);
+  }
+  .left .row-7 {
+    transform: skew(-7deg);
+  }
+  .left .row-7 .seat {
+    transform: skew(8deg);
+  }
+  
+  .right {
+    margin-left: 70px;
+  }
+  .right .cinema-row {
+    transform: skew(7deg);
+    margin: 0 6px;
+  }
+  .right .seat {
+    width: 35px;
+    height: 50px;
+    border-radius: 7px;
+    background: linear-gradient(to top, #761818, #761818, #761818, #761818, #761818, #B54041, #F3686A);
+    margin-bottom: 10px;
+    transform: skew(-8deg);
+    margin-top: -32px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  }
+  .right .row-2 {
+    transform: skew(9deg);
+  }
+  .right .row-2 .seat {
+    transform: skew(-10deg);
+  }
+  .right .row-3 {
+    transform: skew(10deg);
+  }
+  .right .row-3 .seat {
+    transform: skew(-12deg);
+  }
+  .right .row-4 {
+    transform: skew(11deg);
+  }
+  .right .row-4 .seat {
+    transform: skew(-15deg);
+  }
+  .right .row-5 {
+    transform: skew(12deg);
+  }
+  .right .row-5 .seat {
+    transform: skew(-16deg);
+  }
+  .right .row-6 {
+    transform: skew(13deg);
+  }
+  .right .row-6 .seat {
+    transform: skew(-18deg);
+  }
+  .right .row-7 {
+    transform: skew(15deg);
+  }
+  .right .row-7 .seat {
+    transform: skew(-20deg);
+  }
+
+  #book{
+      margin-left: 45%;
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 14px 24px;
+    border: none;
+    transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+    background: linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%);
+    color: #fff;
+    }

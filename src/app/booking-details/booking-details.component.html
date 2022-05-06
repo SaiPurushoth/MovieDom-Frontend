@@ -1,0 +1,43 @@
+<h1>Booking Details</h1>
+
+
+
+<table *ngIf="bookinfo" id="booking" >
+
+     <tr style="text-align:center">
+        <td>Date : </td>
+        <td>{{bookinfo.date | date }}</td>
+      </tr>
+      <tr style="text-align:center">
+        <td>Email : </td>
+        <td>{{bookinfo.email }}</td>   
+     </tr>
+     <tr style="text-align:center">
+        <td>Phone : </td>
+        <td>{{bookinfo.phone}}</td>      
+     </tr>
+     <tr style="text-align:center">
+         <td>TheaterName : </td>
+         <td>{{bookinfo.theaterName }}</td>
+     </tr>
+     <tr style="text-align:center">
+        <td>MovieName : </td>
+        <td>{{bookinfo.movieName }}</td>
+    </tr>
+    <tr style="text-align:center">
+        <td>TicketPrice : </td>
+        <td>{{bookinfo.ticketPrice | currency:'INR'}}</td>
+    </tr>
+    <tr style="text-align:center">
+        <td>Show Timing : </td>
+        <td>{{bookinfo.startAt}}</td>
+    </tr>
+    <tr style="text-align:center">
+        <td>Seats Booked : </td>
+        <td>{{bookinfo.seats}}</td>
+    </tr>
+    <tr style="text-align:center">
+        <td>Total Amount : </td>
+        <td>{{bookinfo.total | currency:'INR'}}</td>
+    </tr>
+   </table>
