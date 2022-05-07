@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
 })
 export class ReservationServiceService {
   theaterId:any
-  userObj:any
   userId:any
   bookingInfo:any
   listItem:any
@@ -69,9 +68,9 @@ return this.availableseats
      return this.theaterId
    }
 
-   getUserObj()
+   getUserId()
    {
-     return this.userObj
+     return this.userId
    }
 
    setTheaterId(theaterId:any)
@@ -79,19 +78,15 @@ return this.availableseats
     this.theaterId=theaterId
    }
 
-   setUserObj(userObj:any)
+   setUserId(userId:any)
    {
-     this.userObj=userObj
+     this.userId=userId
    }
   constructor(private http: HttpClient) { }
 
 
   book(seats:any){
 
-    for(let item of this.userObj)
-    {
-      this.userId=item._id
-    }
 
     const url = "http://localhost:9000/reservations/book/"+this.theaterId+'/'+this.userId;
     const obj = { 
@@ -104,10 +99,6 @@ return this.availableseats
 
 
   records(){
-    for(let item of this.userObj)
-    {
-      this.userId=item._id
-    }
     const url = "http://localhost:9000/reservations/details/"+this.userId;
     return this.http.get(url)
   }

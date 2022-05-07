@@ -19,9 +19,12 @@ name=""
   register(name:string,email:string,password:string,phone:string){
     this.usrService.registerUser(name,email,password,phone).subscribe(
     res=>{
+
         this.navservice.log=true
         this.navservice.unlog=false
-        this.reservationservice.setUserObj(res)
+        this.reservationservice.setUserId(res.id)
+        localStorage.setItem('token',res.token)
+
         this.notifyService.showSuccess("successfully Registered !!", "WELCOME")
         this.route.navigate(['/home'])},
 

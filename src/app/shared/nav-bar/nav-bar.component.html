@@ -13,14 +13,14 @@
             <label for="menuToggle" class="menu-icon"><i class="fa fa-bars"></i></label>
             <ul>
 
-                <a  *ngIf="isRegister()==true" routerLink="/registration/login">Login</a>
-                <a  *ngIf="isRegister()==true" routerLink="/registration/register">Register</a>
-                <a  *ngIf="isRegister()==true" routerLink="">Help</a>
-                <a  *ngIf="isRegister()==true" routerLink="">Contact Us</a>
+                <a  *ngIf="isInside()==false" routerLink="/registration/login">Login</a>
+                <a  *ngIf="isInside()==false" routerLink="/registration/register">Register</a>
+                <a  *ngIf="isInside()==false" routerLink="">Help</a>
+                <a  *ngIf="isInside()==false" routerLink="">Contact Us</a>
                 <a *ngIf="isInside()==true" routerLink="/home">Home</a>
                 <a *ngIf="isInside()==true" routerLink="/records">Bookings</a>
                 <a *ngIf="isInside()==true" routerLink="/profile">Profile</a>
-                <a *ngIf="isInside()==true" routerLink="">Logout</a>
+                <a *ngIf="isInside()==true" (click)="logout()">Logout</a>
             </ul>
         </nav>
     </header>

@@ -20,17 +20,56 @@ export class ReservationComponent implements OnInit {
   rows:any=[]
   columns:any=[]
   status!:any
-  booked:any
-
+  booked:any=[]
+  
+  cstatus:any=new Array()
+   
   ngOnInit(): void {
+
     this.availableseats=this.reservationservice.getAvailableSeats()
     this.price=this.reservationservice.getPrice()
 
   this.rows=this.reservationservice.getRows()
   this.columns=this.reservationservice.getColumns()
-   this.status=new Array(this.rows)
 
-console.log(this.rows,this.columns);
+    this.reservationservice.bookedseats().subscribe(
+      res=>{
+        this.booked=res
+        for(let i of this.rows)
+        {
+         for(let j of this.columns)
+         {
+           let v = i+''+j
+           let index=this.booked.indexOf(v);
+           if(index==-1)
+           {
+           this.cstatus[v]=false;
+           }
+           else
+           {
+             this.cstatus[v]=true;
+           }
+         }
+     
+        }
+        console.log(this.booked)
+        console.log(this.cstatus)
+      },
+      error=>{
+        console.log(error)
+      }
+      
+      )  
+      
+
+
+
+
+
+
+
+
+   this.status=new Array(this.rows)
  
 for(let j=0;j<this.rows.length;j++ )
 {
@@ -40,22 +79,7 @@ for(let j=0;j<this.rows.length;j++ )
    this.status[this.rows[j]][i]=false
 }
 }
-console.log(this.status)
-this.reservationservice.bookedseats().subscribe(
-res=>{
-  this.booked=res
-  console.log(this.booked)
-},
-error=>{
-  console.log(error)
 }
-
-
-
-)
-
-
-  }
 
   book(){
     this.reservationservice.book(this.seats).subscribe(
@@ -78,19 +102,23 @@ select(n1:any,n2:any,isselected:any)
 {
 
 let chair=n1+''+n2
-let index=this.seats.indexOf(chair);
-
-if(index==-1) 
+let index1=this.seats.indexOf(chair);
+let index2=this.booked.indexOf(chair);
+if(index1==-1 && index2==-1) 
 {
 this.status[n1][Number(n2)]=true
 
 this.seats.push(chair)
 console.log(this.seats)
 }
+else if(index2>-1)
+{
+  
+}
 else
 {
   this.status[n1][Number(n2)]=false
-  this.seats.splice(index, 1)
+  this.seats.splice(index1, 1)
   console.log(this.seats)
 }
 }

@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit {
   constructor(private reservationservice:ReservationServiceService,private userservice:UserServiceService,private route:Router,private notifyService:NotificationService) { }
 
   ngOnInit(): void {
-    const item=this.reservationservice.getUserObj()
+    const item=this.reservationservice.getUserId()
     for(let value of item){
       this.user=value
     }

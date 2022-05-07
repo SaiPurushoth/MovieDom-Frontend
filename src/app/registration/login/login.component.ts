@@ -19,7 +19,8 @@ export class LoginComponent implements OnInit {
 
   login(email:string,password:string){
     this.usrService.loginUser(email,password).subscribe(
-      res=>{ this.reservationservice.setUserObj(res)
+      res=>{ this.reservationservice.setUserId(res.id)
+        localStorage.setItem('token',res.token)
         this.navservice.log=true
         this.navservice.unlog=false
         this.notifyService.showSuccess("successfully logged-in !!", "WELCOME")

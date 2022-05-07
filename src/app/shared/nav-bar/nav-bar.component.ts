@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserServiceService } from 'src/app/services/user-service.service';
 import { NavbarServiceService } from '../../services/navbar-service.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { NavbarServiceService } from '../../services/navbar-service.service';
 })
 export class NavBarComponent implements OnInit {
   
-  constructor(private navservice:NavbarServiceService) { }
+  constructor(private navservice:UserServiceService) { }
 
   ngOnInit(): void {
   //   let navbar:any = document.getElementById('navbar')
@@ -23,13 +24,12 @@ export class NavBarComponent implements OnInit {
   //  }
   }
 
-isRegister()
-{
-  return this.navservice.isunLogged()
-}
+
 isInside()
 {
-  return this.navservice.isLogged()
+  return this.navservice.loggedIn()
 }
-
+logout(){
+  this.navservice.logoutUser()
+}
 }

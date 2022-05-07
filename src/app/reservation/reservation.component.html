@@ -15,7 +15,7 @@
   
         <div class="cinema-seats left" >
           <div class="cinema-row row-1" *ngFor="let it of columns">
-            <div class="seat" style="color:white;font-size: small;" *ngFor="let item of rows"  (click)="select(item,it,true)" [class.black]="status[item][it]" [class.active]="status[item][it]" >{{item+""+it}}</div>
+            <div class="seat" style="color:white;font-size: small;" *ngFor="let item of rows"  (click)="select(item,it,true)" [class.blocked]="cstatus[item+it]" [class.active]="status[item][it]" >{{item+""+it}}</div>
           </div>
         </div>
            
@@ -43,5 +43,5 @@
 
   
 </body>
-<button id="book" (click)="book()">Book</button>
+<button id="book" (click)="book()">Pay</button>
 </html>
