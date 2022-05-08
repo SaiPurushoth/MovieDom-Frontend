@@ -16,7 +16,7 @@ export class ReservationComponent implements OnInit {
   price:any
   availableseats:any
    seats:any=[]
-
+  total:number=0  
   rows:any=[]
   columns:any=[]
   status!:any
@@ -106,6 +106,7 @@ let index1=this.seats.indexOf(chair);
 let index2=this.booked.indexOf(chair);
 if(index1==-1 && index2==-1) 
 {
+this.total=this.total+this.price;
 this.status[n1][Number(n2)]=true
 
 this.seats.push(chair)
@@ -117,6 +118,7 @@ else if(index2>-1)
 }
 else
 {
+  this.total=this.total-this.price
   this.status[n1][Number(n2)]=false
   this.seats.splice(index1, 1)
   console.log(this.seats)

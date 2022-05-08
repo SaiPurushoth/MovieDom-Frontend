@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   login(email:string,password:string){
     this.usrService.loginUser(email,password).subscribe(
-      res=>{ this.reservationservice.setUserId(res.id)
+      res=>{ localStorage.setItem('id',res.id)
         localStorage.setItem('token',res.token)
         this.navservice.log=true
         this.navservice.unlog=false

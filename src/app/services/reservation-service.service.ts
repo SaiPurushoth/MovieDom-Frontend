@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
 })
 export class ReservationServiceService {
   theaterId:any
-  userId:any
   bookingInfo:any
   listItem:any
   dateformovie:any
@@ -68,27 +67,20 @@ return this.availableseats
      return this.theaterId
    }
 
-   getUserId()
-   {
-     return this.userId
-   }
 
    setTheaterId(theaterId:any)
    {
     this.theaterId=theaterId
    }
 
-   setUserId(userId:any)
-   {
-     this.userId=userId
-   }
+
   constructor(private http: HttpClient) { }
 
 
   book(seats:any){
 
 
-    const url = "http://localhost:9000/reservations/book/"+this.theaterId+'/'+this.userId;
+    const url = "http://localhost:9000/reservations/book/"+this.theaterId+'/'+localStorage.getItem('id');
     const obj = { 
       date:this.dateformovie,
       seats:seats
@@ -99,7 +91,7 @@ return this.availableseats
 
 
   records(){
-    const url = "http://localhost:9000/reservations/details/"+this.userId;
+    const url = "http://localhost:9000/reservations/details/"+localStorage.getItem('id')
     return this.http.get(url)
   }
 

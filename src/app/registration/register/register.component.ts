@@ -22,13 +22,13 @@ name=""
 
         this.navservice.log=true
         this.navservice.unlog=false
-        this.reservationservice.setUserId(res.id)
+        localStorage.setItem('id',res.id)
         localStorage.setItem('token',res.token)
 
         this.notifyService.showSuccess("successfully Registered !!", "WELCOME")
         this.route.navigate(['/home'])},
 
-      error=>{this.notifyService.showError("Incorrect usename or password", "ERROR")}
+      error=>{this.notifyService.showError("Enter details correctly"+error, "ERROR")}
     
     )
     }

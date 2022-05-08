@@ -1,5 +1,5 @@
 
-<div class="row" *ngIf="list">
+<div class="row" *ngIf="list.length>0; else elseblock">
     <div class="column" *ngFor="let item of list" >
       <div class="card">
             <tr style="text-align: center;">
@@ -7,10 +7,10 @@
           <h3>Date : <span style="color: crimson;">{{item.date | date }}</span></h3> 
                 </td>
         <td>
-          <h3>Movie Name : <span style="color: crimson;">{{item.movieName }}</span></h3>
+          <h3>Movie Name : <span style="color: crimson;">{{item.movieName  | titlecase}}</span></h3>
         </td>
         <td>
-          <h3>Theater Name : <span style="color: crimson;">{{item.cinemaName }}</span></h3>
+          <h3>Theater Name : <span style="color: crimson;">{{item.cinemaName | titlecase}}</span></h3>
         </td>
         </tr>
         <tr style="text-align: center;">
@@ -27,7 +27,9 @@
         </div>
   </div>
   </div>
-
+  <ng-template #elseblock >
+    <h1 style="text-align: center;">No Bookings Available</h1>
+  </ng-template>
 
 <!-- <table *ngIf="list" id="record" >
     <tr>

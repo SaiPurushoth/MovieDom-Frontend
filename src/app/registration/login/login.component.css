@@ -60,3 +60,12 @@ button:hover{
     background-color:darkblue;
 }
 
+
+@media screen and (max-width: 820px) {
+    .container{
+    margin: auto;
+    }
+    body{
+        padding-bottom: 25vh;
+    }
+}

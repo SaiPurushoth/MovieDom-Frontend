@@ -63,13 +63,12 @@ p {
 } */
 
 h1{
-    margin-top: 15%;
     text-align: center;
 }
 body {
     background:lightgray;
-    padding-top: 15vh;
-   padding-bottom: 5vh;
+    padding-top: 20vh;
+    padding-bottom: 35vh;
   }
   
   .theatre {
@@ -221,7 +220,7 @@ body {
   }
 
   #book{
-      margin-left: 45%;
+      margin-left: 48%;
     display: inline-block;
     outline: none;
     cursor: pointer;

@@ -9,6 +9,7 @@
 </head>
 <h3 style="color: black;">Remaining Seats: {{availableseats}}</h3>
 <h3 style="color: black;">Ticket Price: {{price | currency:'INR'}}</h3>
+<h3 style="color: black;float:right;margin-right: 2%;">Total Price: {{total | currency:'INR'}}</h3>
 <body>
 
     <div class="theatre">
@@ -21,7 +22,7 @@
            
       </div>
 
-      <h1>Screen this way</h1>
+
 
 
 <!-- 
@@ -43,5 +44,6 @@
 
   
 </body>
+<h1>Screen this way</h1>
 <button id="book" (click)="book()">Pay</button>
 </html>

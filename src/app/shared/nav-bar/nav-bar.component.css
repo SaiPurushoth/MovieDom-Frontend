@@ -90,6 +90,7 @@ header {
 .menu ul a:hover {
     background-color: #222;
     color: #fff;
+    cursor: pointer;
 }
 #menuToggle {
     display: none;
@@ -102,6 +103,7 @@ header {
     .menu {
         width: 100%;
         height: auto;
+        margin-bottom: 3%;
     }
     .menu ul {
         display: block;
@@ -136,5 +138,8 @@ header {
     }
     .menu-icon i {
         font-size: 1.7em;
+    }
+    .menu-icon i:hover {
+        cursor: pointer;
     }
 }
