@@ -29,4 +29,20 @@ export class CinemaServiceService {
   const url = 'http://localhost:9000/cinemas/'+id;
   return this.http.get(url); 
  }
+
+addCinema(name:any,city:any,ticketPrice:any,rows:any,columns:any,movie:any,startAt:any,date:any):Observable<any>{
+  const url = 'http://localhost:9000/cinemas/register'
+  var obj={
+    name:name,
+    city:city,
+    ticketPrice:ticketPrice,
+    rows:rows,
+    columns:columns,
+    movie:movie,
+    startAt:startAt,
+    date:date
+  }
+  return this.http.post(url,obj); 
+}
+
 }

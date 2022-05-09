@@ -1,0 +1,45 @@
+<div class="container">  
+    <form id="contact" action="" method="post">
+      <h3>Add Cinema</h3>
+      <h5>Theater Name:</h5>
+      <fieldset>
+        <input placeholder="Name of Theater" type="text" tabindex="1" required autofocus #name>
+      </fieldset>
+      <h5>City:</h5>
+      <fieldset>
+        <input placeholder="Location of Theater" type="text" tabindex="2" required #city>
+      </fieldset>
+      <h5>Ticket Price:</h5>
+      <fieldset>
+        <input placeholder="Ticket Price in Rupees" type="number" tabindex="2" required #ticketPrice>
+      </fieldset>
+      <h5>Row Values:</h5>
+      <fieldset>
+        <input placeholder="Row values in alphabet" type="text" tabindex="2" required #rows> 
+      </fieldset>
+      <h5>Column Values:</h5>
+      <fieldset>
+        <input placeholder="Column values in number" type="text" tabindex="2" required #columns> 
+      </fieldset>
+      <h5>Movie:</h5>
+      <fieldset>
+          <select #movie>
+
+        <option *ngFor="let item of list" value="{{item}}" >{{item}}</option>
+
+      </select>
+      </fieldset>
+      <h5>Show Time:</h5>
+      <fieldset>
+        <input placeholder="Show Start time" type="text" tabindex="3" required #startAt>
+      </fieldset>
+      <h5>Release Date:</h5>
+      <fieldset>
+        <input placeholder="Release Date of Movie" type="date" tabindex="3" required #date>
+      </fieldset>
+      <fieldset>
+        <button name="submit" type="submit" id="contact-submit" (click)="submit(name.value,city.value,ticketPrice.value,rows.value,columns.value,movie.value,startAt.value,date.value)" data-submit="...Sending">Submit</button>
+      </fieldset>
+    
+    </form>
+  </div>

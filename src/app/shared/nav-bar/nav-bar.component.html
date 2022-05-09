@@ -20,7 +20,7 @@
                 <a *ngIf="isInside()==true && isadmin()==false" routerLink="/records">Bookings</a>
                 <a *ngIf="isInside()==true  && isadmin()==false" routerLink="/profile">Profile</a>
                 <a *ngIf="isInside()==true && isadmin()==true" routerLink="/admin/addMovies">Add Movies</a>
-                <a *ngIf="isInside()==true && isadmin()==true" routerLink="/addTheater">Add Theaters</a>
+                <a *ngIf="isInside()==true && isadmin()==true" routerLink="/admin/addCinema">Add Theaters</a>
                 <a *ngIf="isInside()==true && isadmin()==true" routerLink="/admin/userDetails">Users</a>
                 <a *ngIf="isInside()==true" (click)="logout()">Logout</a>
 

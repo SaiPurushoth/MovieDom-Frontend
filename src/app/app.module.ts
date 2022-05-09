@@ -18,6 +18,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
 import { AddMoviesComponent } from './admin/add-movies/add-movies.component';
 import { AdminRoutingModule } from './admin/admin-routing.module';
 import { UsersListComponent } from './admin/users-list/users-list.component';
+import { AddCinemaComponent } from './admin/add-cinema/add-cinema.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { UsersListComponent } from './admin/users-list/users-list.component';
     RecordComponent,
     ProfileComponent,
     AddMoviesComponent,
-    UsersListComponent
+    UsersListComponent,
+    AddCinemaComponent
   ],
   imports: [
     BrowserModule,

@@ -13,16 +13,16 @@
     <div class="container">
         <h2 style="color: black;">Registration</h2>
         <form action="" #userForm="ngForm">
-            <h3 style="color: black;">Name:</h3>
-            <input type="text" name="username" id="username" placeholder="Your name" #name 
+            <h3 style="color: black;">Name</h3>
+            <input type="text" name="username" id="username" placeholder="Enter Name" #name 
             required>
-            <h3 style="color: black;">Email:</h3>
-            <input type="email"  class="form-control" name="email" id="email" placeholder="Email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email
+            <h3 style="color: black;">Email</h3>
+            <input type="email"  class="form-control" name="email" id="email" placeholder="Enter Email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email
             required> 
-            <h3 style="color: black;">Password:</h3>
-            <input type="password" name="password"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" id="password" placeholder="Password" required #password> 
-            <h3 style="color: black;">Phone:</h3>
-            <input type="tel" name="phone" pattern="^\d{10}$" id="phone" placeholder=" Phone no" required #phone>
+            <h3 style="color: black;">Password</h3>
+            <input type="password" name="password"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" id="password" placeholder="Enter Password" required #password> 
+            <h3 style="color: black;">Phone</h3>
+            <input type="tel" name="phone" pattern="^\d{10}$" id="phone" placeholder="Enter Phone no" required #phone>
 
             <div class="btns">
                 <button type="submit" (click)="register(name.value,email.value,password.value,phone.value)">Register</button>
