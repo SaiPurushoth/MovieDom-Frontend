@@ -12,15 +12,18 @@
             <input type="checkbox" id="menuToggle">
             <label for="menuToggle" class="menu-icon"><i class="fa fa-bars"></i></label>
             <ul>
-
                 <a  *ngIf="isInside()==false" routerLink="/registration/login">Login</a>
                 <a  *ngIf="isInside()==false" routerLink="/registration/register">Register</a>
                 <a  *ngIf="isInside()==false" routerLink="">Help</a>
                 <a  *ngIf="isInside()==false" routerLink="">Contact Us</a>
                 <a *ngIf="isInside()==true" routerLink="/home">Home</a>
-                <a *ngIf="isInside()==true" routerLink="/records">Bookings</a>
-                <a *ngIf="isInside()==true" routerLink="/profile">Profile</a>
+                <a *ngIf="isInside()==true && isadmin()==false" routerLink="/records">Bookings</a>
+                <a *ngIf="isInside()==true  && isadmin()==false" routerLink="/profile">Profile</a>
+                <a *ngIf="isInside()==true && isadmin()==true" routerLink="/admin/addMovies">Add Movies</a>
+                <a *ngIf="isInside()==true && isadmin()==true" routerLink="/addTheater">Add Theaters</a>
+                <a *ngIf="isInside()==true && isadmin()==true" routerLink="/admin/userDetails">Users</a>
                 <a *ngIf="isInside()==true" (click)="logout()">Logout</a>
+
             </ul>
         </nav>
     </header>

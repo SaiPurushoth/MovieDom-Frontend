@@ -37,7 +37,7 @@ this.date=dat
 cinemaDetail(id:any){
   this.cinemaservice.getCinema(id).subscribe(
     res=>{this.cinemaservice.setCinemaInfoformation(res)
-      this.route.navigate(['cinemaDetail'])}
+      this.route.navigate(['/details/cinemaDetail'])}
   )
 }
 
@@ -46,7 +46,7 @@ movieDetail(id:any)
   console.log(id)
   this.movieservice.getMovie(id).subscribe(
     res=>{this.movieservice.setMovieInfoformation(res)
-      this.route.navigate(['movieDetail'])
+      this.route.navigate(['details/movieDetail'])
     }
   )
 }

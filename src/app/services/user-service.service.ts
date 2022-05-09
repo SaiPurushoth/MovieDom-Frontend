@@ -4,12 +4,12 @@ import { Observable } from 'rxjs';
 import { ReservationServiceService } from './reservation-service.service';
 import { Router } from '@angular/router';
 import { NotificationService } from './notification.service';
-
+import {JwtHelperService} from '@auth0/angular-jwt'
 @Injectable({
   providedIn: 'root'
 })
 export class UserServiceService {
-
+  public jwtHelper:JwtHelperService = new JwtHelperService()
  
   constructor(private http: HttpClient,private reservationservice:ReservationServiceService,private router:Router,private notifyservice:NotificationService) { }
 
@@ -21,7 +21,10 @@ export class UserServiceService {
     }; 
     return this.http.post(url, obj)
   }
-
+  listUser(){
+    const url = 'http://localhost:9000/users/list';
+    return this.http.get(url)
+  }
   registerUser(name:string,email:string,password:string,phone:string):Observable<any>{
     const url = 'http://localhost:9000/users/register';
     const obj = { 
@@ -46,17 +49,23 @@ updateUser(name:string,email:string,password:string,phone:string){
   }
 
 loggedIn(){
-  return !!localStorage.getItem('token')
+  const tok=localStorage.getItem('token')
+  return !!tok && !this.jwtHelper.isTokenExpired(tok)
   
 }
 logoutUser(){
   localStorage.removeItem('token')
   localStorage.removeItem('id')
+  localStorage.removeItem('admin')
   this.notifyservice.showSuccess("successfully logged-out!!", "BYE!!")
   this.router.navigate(['registration/login'])
 }
 getToken(){
   return localStorage.getItem('token')
+}
+isAdmin()
+{
+  return !!localStorage.getItem('admin')
 }
 
 }

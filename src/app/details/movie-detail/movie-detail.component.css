@@ -30,6 +30,7 @@
     padding: 0 2px;
     margin-bottom: 20px;
     margin-left: 35%;
+
   }
   
   .row {margin: 0 -5px;}
@@ -42,11 +43,12 @@
   }
   
   
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
     .column {
-      width: 100%;
+      width: 90%;
       display: block;
       margin-bottom: 20px;
+      margin-left: 3%;
     }
   } 
   

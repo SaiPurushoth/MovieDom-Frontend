@@ -6,15 +6,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { CinemaDetailComponent } from './cinema-detail/cinema-detail.component';
-import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { CinemaDetailComponent } from './details/cinema-detail/cinema-detail.component';
+import { MovieDetailComponent } from './details/movie-detail/movie-detail.component';
 import { ReservationComponent } from './reservation/reservation.component';
-import { BookingDetailsComponent } from './booking-details/booking-details.component';
+import { BookingDetailsComponent } from './details/booking-details/booking-details.component';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { RecordComponent } from './record/record.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ToastrModule } from 'ngx-toastr';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { AddMoviesComponent } from './admin/add-movies/add-movies.component';
+import { AdminRoutingModule } from './admin/admin-routing.module';
+import { UsersListComponent } from './admin/users-list/users-list.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { TokenInterceptorService } from './token-interceptor.service';
     BookingDetailsComponent,
     NavBarComponent,
     RecordComponent,
-    ProfileComponent
+    ProfileComponent,
+    AddMoviesComponent,
+    UsersListComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +39,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    AdminRoutingModule,
     ToastrModule.forRoot()
   ],
   providers: [{provide: HTTP_INTERCEPTORS,useClass:TokenInterceptorService,multi:true}],

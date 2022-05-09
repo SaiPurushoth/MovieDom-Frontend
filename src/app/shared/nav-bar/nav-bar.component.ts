@@ -32,4 +32,7 @@ isInside()
 logout(){
   this.navservice.logoutUser()
 }
+isadmin(){
+  return this.navservice.isAdmin()
+}
 }

@@ -52,7 +52,8 @@ header {
     line-height: 50px;
     text-align: center;
     font-family: sans-serif;
-    background-color: lightcoral
+    background-color: lightcoral;
+    margin-top: 0;
 }
 
 .brand {
