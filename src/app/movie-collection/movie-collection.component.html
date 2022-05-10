@@ -1,0 +1,17 @@
+
+<div class="row" *ngIf="movies" >
+  <div class="column" *ngFor="let movie of movies">
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="{{movie.image}}" alt="Avatar" style="width:300px;height:300px;">
+    </div>
+    <div class="flip-card-back">
+      <h1><a (click)="movieDetail(movie._id)" >{{movie.title | titlecase}}</a></h1> 
+      <button id="book" (click)="select(movie._id)">Select</button>
+    </div>
+  </div>
+</div>
+  </div>
+ 
+</div>

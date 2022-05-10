@@ -19,7 +19,7 @@ a {
 }
 a:hover{
     color: black;
-}
+}*/
 
 .sticky {
     position: fixed;
@@ -30,7 +30,7 @@ a:hover{
  
   .sticky + .content {
     padding-top: 60px;
-  } */
+  } 
 
 
   html, body {
@@ -52,7 +52,7 @@ header {
     line-height: 50px;
     text-align: center;
     font-family: sans-serif;
-    background-color: lightcoral;
+    background-color:lightcoral;
     margin-top: 0;
 }
 

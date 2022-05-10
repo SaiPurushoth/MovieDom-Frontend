@@ -19,6 +19,7 @@ import { AddMoviesComponent } from './admin/add-movies/add-movies.component';
 import { AdminRoutingModule } from './admin/admin-routing.module';
 import { UsersListComponent } from './admin/users-list/users-list.component';
 import { AddCinemaComponent } from './admin/add-cinema/add-cinema.component';
+import { MovieCollectionComponent } from './movie-collection/movie-collection.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AddCinemaComponent } from './admin/add-cinema/add-cinema.component';
     ProfileComponent,
     AddMoviesComponent,
     UsersListComponent,
-    AddCinemaComponent
+    AddCinemaComponent,
+    MovieCollectionComponent
   ],
   imports: [
     BrowserModule,

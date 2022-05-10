@@ -7,8 +7,15 @@ import { Observable } from 'rxjs';
 })
 export class CinemaServiceService {
   cinemaInfo:any
+  movieId:any
   constructor(private http: HttpClient) { }
-
+  getMovieid()
+  {
+  return this.movieId;
+  }
+  setMovieId(id:any){
+  this.movieId=id
+  }
   getCinemaInfomation(){
     return this.cinemaInfo
   }
@@ -18,11 +25,11 @@ export class CinemaServiceService {
 
  listCinema():Observable<any>
  {
-  const url = 'http://localhost:9000/cinemas/list';
+  const url = 'http://localhost:9000/cinemas/list/'+this.movieId;
   return this.http.get(url);
  }
  searchCinema(city:string,date:any):Observable<any>{
-  const url = 'http://localhost:9000/cinemas/search/'+city+'/'+date;
+  const url = 'http://localhost:9000/cinemas/search/'+this.movieId+'/'+city+'/'+date;
   return this.http.get(url); 
  }
  getCinema(id:any):Observable<any>{

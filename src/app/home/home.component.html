@@ -1,16 +1,12 @@
 <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-<form>
-<div class="wrap">
-    <div class="search">
-       <input type="text" class="searchTerm" placeholder=" Search your city" #sch required>
-       <input type="date" class="dateTerm" #dat required>
-       <button type="submit" class="searchButton" (click)="search(sch.value,dat.value)">
-        <i class="uil uil-search"></i>
-      </button>
-    </div>
- </div>
-</form>
 
+<div>
+  <form class="example" action="/action_page.php" style="margin:auto; width: 80%;">
+      <input type="text" placeholder="Enter City" name="search2" style="margin-right:1%" #sch>
+      <input type="date" class="dateTerm" style="margin-right:1%" #dat required>
+      <button type="submit" (click)="search(sch.value,dat.value)"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
 
 <div class="row" *ngIf="cinemas.length>0; else elseblock">
   <div class="column" *ngFor="let cinema of cinemas">
@@ -51,7 +47,6 @@
 </div>
   </div>
  
-
 </div> -->
 
  <!-- <table *ngIf="cinemas" id="cinema" >

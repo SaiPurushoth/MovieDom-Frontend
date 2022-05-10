@@ -28,7 +28,8 @@ this.date=dat
   city=city.toLowerCase()
  this.cinemaservice.searchCinema(city,dat).subscribe(
   res=>{this.cinemas=res},
-  error=>{this.notifyService.showError("Enter the city and date correctly", "ERROR")}
+  error=>{this.notifyService.showError("Try Again", "ERROR")
+this.route.navigate(['/home'])}
 
 
  )

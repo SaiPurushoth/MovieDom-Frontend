@@ -12,7 +12,7 @@ export class NavBarComponent implements OnInit {
   constructor(private navservice:UserServiceService) { }
 
   ngOnInit(): void {
-  //   let navbar:any = document.getElementById('navbar')
+  //   let navbar:any = document.getElementsByTagName('nav')
 
   //  let sticky = navbar.offsetTop;
   //  window.onscroll=()=>{

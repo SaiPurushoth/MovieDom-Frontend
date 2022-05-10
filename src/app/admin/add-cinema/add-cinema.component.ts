@@ -15,20 +15,34 @@ export class AddCinemaComponent implements OnInit {
     ) { }
   list:any
   ngOnInit(): void {
+    if(localStorage.getItem('role')!='admin')
+    {
+      this.notifyservice.showError("you are not admin", "ERROR")
+      this.route.navigate(['/home'])
+    }
+
    this.movieservice.listMovie().subscribe(
      res=>{this.list=res}
    )
   }
 
   submit(name:any,city:any,ticketPrice:any,rows:any,columns:any,movie:any,startAt:any,date:any){
+    if(localStorage.getItem('role')=='admin'){
   this.cinemaservice.addCinema(name,city,ticketPrice,rows,columns,movie,startAt,date).subscribe(
     res=>{this.notifyservice.showSuccess("add Cinema done","SUCCESS")
-    this.route.navigate(['\home'])},
+    this.route.navigate(['/home'])},
     err=>{
       console.log(err)
      this.notifyservice.showError("Enter Details Correctly", "ERROR")
     }
   )
+    }
+else
+{
+  this.notifyservice.showError("you are not admin", "ERROR")
+  this.route.navigate(['/home'])
+}
+
   }
 
 }

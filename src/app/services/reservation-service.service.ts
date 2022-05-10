@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class ReservationServiceService {
   theaterId:any
+
   bookingInfo:any
   listItem:any
   dateformovie:any
@@ -13,6 +14,8 @@ export class ReservationServiceService {
   columns:any
   price:any
   availableseats:any
+
+
 
   getRows(){
     return this.rows

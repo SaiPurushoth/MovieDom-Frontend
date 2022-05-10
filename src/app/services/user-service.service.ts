@@ -65,7 +65,14 @@ getToken(){
 }
 isAdmin()
 {
-  return !!localStorage.getItem('admin')
+ if(localStorage.getItem('role')=='admin')
+ {
+   return true;
+ }
+ else
+ {
+   return false;
+ }
 }
 
 }

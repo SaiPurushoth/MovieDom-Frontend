@@ -19,7 +19,7 @@ name=""
   register(name:string,email:string,password:string,phone:string){
     this.usrService.registerUser(name,email,password,phone).subscribe(
     res=>{
-
+      localStorage.setItem('role',res.role)
         this.navservice.log=true
         this.navservice.unlog=false
         localStorage.setItem('id',res.id)

@@ -20,10 +20,8 @@ export class LoginComponent implements OnInit {
   login(email:string,password:string){
     this.usrService.loginUser(email,password).subscribe(
       res=>{ localStorage.setItem('id',res.id)
-      if(res.role=='admin')
-      {
-        localStorage.setItem('admin',res.role)
-      }
+
+        localStorage.setItem('role',res.role)
         localStorage.setItem('token',res.token)
         this.navservice.log=true
         this.navservice.unlog=false

@@ -20,6 +20,10 @@ listMovie():Observable<any>
   const url = 'http://localhost:9000/movies/list'
   return this.http.get(url); 
 }
+getallMovies():Observable<any>{
+  const url = 'http://localhost:9000/movies/'
+  return this.http.get(url); 
+}
  getMovie(id:any):Observable<any>{
   const url = 'http://localhost:9000/movies/details/'+id;
   return this.http.get(url); 

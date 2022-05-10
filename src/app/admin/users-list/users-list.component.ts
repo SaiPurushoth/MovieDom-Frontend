@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/services/notification.service';
 import { UserServiceService } from 'src/app/services/user-service.service';
 
 @Component({
@@ -8,14 +10,18 @@ import { UserServiceService } from 'src/app/services/user-service.service';
 })
 export class UsersListComponent implements OnInit {
   list:any
-  constructor(private userservice:UserServiceService) { }
+  constructor(private userservice:UserServiceService,private notifyservice:NotificationService,private route:Router) { }
 
   ngOnInit(): void {
-    if(!!localStorage.getItem('admin')){
+    if(localStorage.getItem('role')=='admin'){
     this.userservice.listUser().subscribe(
       res=>{this.list=res},
       err=>{alert('not fetched properly')}
     )
+  }
+  else{
+    this.notifyservice.showError("You are not a admin", "ERROR")
+    this.route.navigate(['/home'])
   }
 }
 

@@ -221,6 +221,7 @@ body {
 
   #book{
       margin-left: 48%;
+      margin-bottom: 1%;
     display: inline-block;
     outline: none;
     cursor: pointer;
