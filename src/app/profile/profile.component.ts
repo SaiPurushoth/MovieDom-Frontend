@@ -14,10 +14,9 @@ export class ProfileComponent implements OnInit {
   constructor(private reservationservice:ReservationServiceService,private userservice:UserServiceService,private route:Router,private notifyService:NotificationService) { }
 
   ngOnInit(): void {
-    const item:any=localStorage.getItem('id')
-    for(let value of item){
-      this.user=value
-    }
+   this.userservice.getUser().subscribe(
+     res=>{this.user=res}
+   )
   }
   update(name:string,email:string,password:string,phone:string)
   {

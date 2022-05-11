@@ -13,8 +13,8 @@
     <div class="card">
       <img src={{cinema.image}} alt="Avatar" style="width:100%">
       <div class="container" style="text-align: center;">
-        <h1><a (click)="movieDetail(cinema.movieId)" >{{cinema.movieName | titlecase}}</a></h1> 
-        <h3>Theater Name: <a (click)="cinemaDetail(cinema.theaterId)" >{{cinema.theaterName | titlecase}}</a></h3> 
+        <h1><a  (click)="cinemaDetail(cinema.theaterId)" >{{ cinema.theaterName| titlecase}}</a></h1> 
+        <h3>Movie Name: <a (click)="movieDetail(cinema.movieId)" >{{ cinema.movieName | titlecase}}</a></h3> 
         <h3>Show Time : <span>{{cinema.startAt}}</span></h3>
         <h3>Available Seats: <span>{{cinema.seatsAvailability}}</span></h3>
         <h3>Location: <span>{{cinema.city | titlecase}}</span></h3>

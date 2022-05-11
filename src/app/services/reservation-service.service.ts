@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
 })
 export class ReservationServiceService {
   theaterId:any
-
   bookingInfo:any
   listItem:any
   dateformovie:any

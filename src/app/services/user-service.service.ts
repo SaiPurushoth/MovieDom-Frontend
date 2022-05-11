@@ -10,7 +10,7 @@ import {JwtHelperService} from '@auth0/angular-jwt'
 })
 export class UserServiceService {
   public jwtHelper:JwtHelperService = new JwtHelperService()
- 
+
   constructor(private http: HttpClient,private reservationservice:ReservationServiceService,private router:Router,private notifyservice:NotificationService) { }
 
   loginUser(email:string, password:string):Observable<any> {
@@ -21,7 +21,7 @@ export class UserServiceService {
     }; 
     return this.http.post(url, obj)
   }
-  listUser(){
+  listUser():Observable<any>{
     const url = 'http://localhost:9000/users/list';
     return this.http.get(url)
   }
@@ -36,6 +36,12 @@ export class UserServiceService {
     };
     return this.http.post(url, obj)
   }
+  getUser(){
+    const id=localStorage.getItem('id')
+    const url = 'http://localhost:9000/users/one/'+id;
+    return this.http.get(url)
+
+  }
 updateUser(name:string,email:string,password:string,phone:string){
     const url = 'http://localhost:9000/users/update/'+localStorage.getItem('id');
     const obj = { 
@@ -45,7 +51,7 @@ updateUser(name:string,email:string,password:string,phone:string){
       phone:phone
 
     };
-    return this.http.post(url, obj)
+    return this.http.patch(url, obj)
   }
 
 loggedIn(){

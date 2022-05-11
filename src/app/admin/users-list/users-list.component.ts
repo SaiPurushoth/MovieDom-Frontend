@@ -16,7 +16,9 @@ export class UsersListComponent implements OnInit {
     if(localStorage.getItem('role')=='admin'){
     this.userservice.listUser().subscribe(
       res=>{this.list=res},
-      err=>{alert('not fetched properly')}
+      err=>{
+        console.log(err)
+        alert('not fetched properly')}
     )
   }
   else{

@@ -1,45 +1,45 @@
 <div class="container">  
     <form id="contact" action="" method="post">
-      <h3>Add Cinema</h3>
+      <h3>Edit Cinema</h3>
       <h5>Theater Name:</h5>
       <fieldset>
-        <input placeholder="Name of Theater" type="text" tabindex="1" required autofocus #name>
+        <input value="{{item.name}}" placeholder="Name of Theater" type="text" tabindex="1" required autofocus #name>
       </fieldset>
       <h5>City:</h5>
       <fieldset>
-        <input placeholder="Location of Theater" type="text" tabindex="2" required #city>
+        <input value="{{item.city}}" placeholder="Location of Theater" type="text" tabindex="2" required #city>
       </fieldset>
       <h5>Ticket Price:</h5>
       <fieldset>
-        <input placeholder="Ticket Price in Rupees" type="number" tabindex="2" required #ticketPrice>
+        <input value="{{item.ticketPrice}}" placeholder="Ticket Price in Rupees" type="number" tabindex="2" required #ticketPrice>
       </fieldset>
       <h5>Row Values:</h5>
       <fieldset>
-        <input placeholder="Row values in alphabet" type="text" tabindex="2" required #rows> 
+        <input value="{{item.rows}}" placeholder="Row values in alphabet" type="text" tabindex="2" required #rows> 
       </fieldset>
       <h5>Column Values:</h5>
       <fieldset>
-        <input placeholder="Column values in number" type="text" tabindex="2" required #columns> 
+        <input value="{{item.columns}}" placeholder="Column values in number" type="text" tabindex="2" required #columns> 
       </fieldset>
       <h5>Movie:</h5>
       <fieldset>
           <select #movie>
-
+        <option>{{moviename.title}}</option>
         <option *ngFor="let item of list" value="{{item}}" >{{item}}</option>
 
       </select>
       </fieldset>
       <h5>Show Time:</h5>
       <fieldset>
-        <input placeholder="Show Start time" type="text" tabindex="3" required #startAt>
+        <input value="{{item.startAt}}" placeholder="Show Start time" type="text" tabindex="3" required #startAt>
       </fieldset>
       <h5>Release Date:</h5>
       <fieldset>
-        <input placeholder="Release Date of Movie" type="date" tabindex="3" required #date>
+        <input value="{{item.date}}" placeholder="Release Date of Movie" type="date" tabindex="3" required #date>
       </fieldset>
       <h5>Image Url:</h5>
       <fieldset>
-        <input placeholder="Imaage Url of Movie" type="url" tabindex="4" required #image>
+        <input value="{{item.image}}" placeholder="Imaage Url of Movie" type="url" tabindex="4" required #image>
       </fieldset>
       <fieldset>
         <button name="submit" type="submit" id="contact-submit" (click)="submit(name.value,city.value,ticketPrice.value,rows.value,columns.value,movie.value,startAt.value,date.value,image.value)" data-submit="...Sending">Submit</button>
