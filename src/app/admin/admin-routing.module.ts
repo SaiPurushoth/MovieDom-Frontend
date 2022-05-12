@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../auth.guard';
+import { HomeComponent } from '../home/home.component';
 import { AddCinemaComponent } from './add-cinema/add-cinema.component';
 import { AddMoviesComponent } from './add-movies/add-movies.component';
 import { EditTheatersComponent } from './edit-theaters/edit-theaters.component';

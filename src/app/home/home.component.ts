@@ -12,21 +12,62 @@ import { NotificationService } from '../services/notification.service';
 })
 export class HomeComponent implements OnInit {
   cinemas:any
+  city:any=""
+  data:any=[]
+  keyword = 'name';
+
   date:any=new Date().toISOString().substring(0,10)
   constructor(private cinemaservice:CinemaServiceService,private movieservice:MovieServiceService,private route:Router,private reservationservice:ReservationServiceService,private notifyService:NotificationService ) { }
-
+  unique(value:any, index:any, self:any){
+    return self.indexOf(value) === index
+  }
   ngOnInit(): void {
       this.cinemaservice.listCinema().subscribe(
         res=>{this.cinemas=res
-        }
-        
+        }  
       )
+      this.cinemaservice.allCinema().subscribe(
+        res=>{
+            let list=[]
+            for(let item of res)
+            {
+ 
+              list.push(item.city)
+            }
+
+            this.data = list.filter(this.unique)
+
+
+
+        }
+      )
+
   }
-search(city:string,dat:any)
+
+ 
+
+
+ 
+  selectEvent(item:any) {
+
+    this.city=item
+  }
+ 
+  onChangeSearch(val: string) {
+ 
+  }
+  
+  onFocused(e:any){
+  
+  }
+
+
+search(dat:any)
 {
 this.date=dat
-  city=city.toLowerCase()
- this.cinemaservice.searchCinema(city,dat).subscribe(
+  this.city=this.city.toLowerCase()
+  console.log(this.city)
+ this.cinemaservice.searchCinema(this.city,dat).subscribe(
   res=>{this.cinemas=res},
   error=>{this.notifyService.showError("Try Again", "ERROR")
 this.route.navigate(['/home'])}
@@ -34,6 +75,11 @@ this.route.navigate(['/home'])}
 
  )
 }
+
+
+
+
+
 
 cinemaDetail(id:any){
   this.cinemaservice.getCinema(id).subscribe(

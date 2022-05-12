@@ -41,15 +41,22 @@ moviename:any
 
 
   submit(name:any,city:any,ticketPrice:any,rows:any,columns:any,movie:any,startAt:any,date:any,image:any){
+
     if(localStorage.getItem('role')=='admin'){
-  this.cinemaservice.updateCinema(name,city,ticketPrice,rows,columns,movie,startAt,date,image).subscribe(
-    res=>{this.notifyservice.showSuccess("add Cinema done","SUCCESS")
-    this.route.navigate(['/home'])},
-    err=>{
+
+  this.cinemaservice.updateCinema(name,city,ticketPrice,rows,columns,movie,startAt,date,image).subscribe({
+    next:(data)=>{
+          this.notifyservice.showSuccess("add Cinema done","SUCCESS")
+
+    this.route.navigate(['/home'])
+  },
+
+
+    error:(err)=>{
       console.log(err)
      this.notifyservice.showError("Enter Details Correctly", "ERROR")
     }
-  )
+    })
     }
 else
 {
@@ -57,7 +64,8 @@ else
   this.route.navigate(['/home'])
 }
 
-  }
+ 
+ }
 
 }  
 

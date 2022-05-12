@@ -20,6 +20,9 @@ import { AdminRoutingModule } from './admin/admin-routing.module';
 import { UsersListComponent } from './admin/users-list/users-list.component';
 import { AddCinemaComponent } from './admin/add-cinema/add-cinema.component';
 import { MovieCollectionComponent } from './movie-collection/movie-collection.component';
+import { FrontPageComponent } from './front-page/front-page.component';
+import { NgImageSliderModule } from 'ng-image-slider';
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { MovieCollectionComponent } from './movie-collection/movie-collection.co
     AddMoviesComponent,
     UsersListComponent,
     AddCinemaComponent,
-    MovieCollectionComponent
+    MovieCollectionComponent,
+    FrontPageComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +49,8 @@ import { MovieCollectionComponent } from './movie-collection/movie-collection.co
     HttpClientModule,
     BrowserAnimationsModule,
     AdminRoutingModule,
+    NgImageSliderModule,
+    AutocompleteLibModule,
     ToastrModule.forRoot()
   ],
   providers: [{provide: HTTP_INTERCEPTORS,useClass:TokenInterceptorService,multi:true}],

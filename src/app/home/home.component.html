@@ -1,12 +1,29 @@
 <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
 <div>
-  <form class="example" action="/action_page.php" style="margin:auto; width: 80%;">
-      <input type="text" placeholder="Enter City" name="search2" style="margin-right:1%" #sch>
+  <form autocomplete=off class="example" action="/action_page.php" style="margin:auto; width: 80%;">
+      <!-- <input type="text" placeholder="Enter City" name="search2" style="margin-right:1%" #sch > -->
+      <div class="ng-autocomplete" style="width: 80%; margin-right:1%" >
+        <ng-autocomplete  [data]="data" [searchKeyword]="keyword" (selected)='selectEvent($event)' placeholder="Enter City"
+            (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate"
+            [notFoundTemplate]="notFoundTemplate" #sch>
+        </ng-autocomplete>
+    
+        <ng-template #itemTemplate let-item>
+            <a [innerHTML]="item | titlecase"></a>
+        </ng-template>
+    
+        <ng-template #notFoundTemplate let-notFound>
+            <div [innerHTML]="notFound"></div>
+        </ng-template>
+      </div>
       <input type="date" class="dateTerm" style="margin-right:1%" #dat required>
-      <button type="submit" (click)="search(sch.value,dat.value)"><i class="fa fa-search"></i></button>
+      <button type="submit" (click)="search(dat.value)"><i class="fa fa-search"></i></button>
     </form>
   </div>
+
+
+
 
 <div class="row" *ngIf="cinemas.length>0; else elseblock">
   <div class="column" *ngFor="let cinema of cinemas">

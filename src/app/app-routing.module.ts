@@ -10,12 +10,13 @@ import { ProfileComponent } from './profile/profile.component';
 import { RecordComponent } from './record/record.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { MovieCollectionComponent } from './movie-collection/movie-collection.component';
+import { FrontPageComponent } from './front-page/front-page.component';
 
 const routes: Routes = [
   {path:'registration',loadChildren:()=>import('./registration/registration.module').then(mod=>mod.RegistrationModule)},
   {path:'details',loadChildren:()=>import('./details/details.module').then(mod=>mod.DetailsModule)},
   {path:'admin',loadChildren:()=>import('./admin/admin.module').then(mod=>mod.AdminModule)},
-  {path:'',component:HomeComponent,canActivate:[AuthGuard]},
+  {path:'',component:FrontPageComponent},
   {path:'home',component:MovieCollectionComponent,canActivate:[AuthGuard]},
   {path:'shows',component:HomeComponent,canActivate:[AuthGuard]},
   {path:'reservation',component:ReservationComponent,canActivate:[AuthGuard]},

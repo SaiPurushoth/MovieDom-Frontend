@@ -80,6 +80,7 @@ updateCinema(name:any,city:any,ticketPrice:any,rows:any,columns:any,movie:any,st
     date:date,
     image:image
   }
+
   return this.http.patch(url,obj); 
 }
 

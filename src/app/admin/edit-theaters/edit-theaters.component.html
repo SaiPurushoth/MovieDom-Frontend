@@ -1,5 +1,5 @@
 <div class="container">  
-    <form id="contact" action="" method="post">
+    <form id="contact" (ngSubmit)="submit(name.value,city.value,ticketPrice.value,rows.value,columns.value,movie.value,startAt.value,date.value,image.value)">
       <h3>Edit Cinema</h3>
       <h5>Theater Name:</h5>
       <fieldset>
@@ -41,8 +41,9 @@
       <fieldset>
         <input value="{{item.image}}" placeholder="Imaage Url of Movie" type="url" tabindex="4" required #image>
       </fieldset>
+
       <fieldset>
-        <button name="submit" type="submit" id="contact-submit" (click)="submit(name.value,city.value,ticketPrice.value,rows.value,columns.value,movie.value,startAt.value,date.value,image.value)" data-submit="...Sending">Submit</button>
+        <button type="submit" id="contact-submit" >Submit</button>
       </fieldset>
     
     </form>

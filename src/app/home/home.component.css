@@ -11,9 +11,13 @@ body{
 .example{
   display: flex;
 }
+.ng-autocomplete{
+  margin-top: 1.5%;
+  font-size: 15px;
+}
 form.example input[type=text] ,form.example input[type=date]{
-  padding: 10px;
-  font-size: 17px;
+  padding: 7px;
+  font-size: 15px;
   border: 1px solid grey;
   float: left;
   width: 80%;
@@ -86,6 +90,8 @@ form.example::after {
 } */
 
 /*Resize the wrap to see the search bar change!*/
+
+
 .wrap{
   width: 50%;
 position: relative;

@@ -12,9 +12,9 @@
 
     <div class="container">
         <h2 style="color: black;">Registration</h2>
-        <form action="" #userForm="ngForm">
+        <form  #userForm="ngForm">
             <h3 style="color: black;">Name</h3>
-            <input type="text" name="username" id="username" placeholder="Enter Name" #name 
+            <input type="text" name="username" id="username" placeholder="Enter Name" #name
             required>
             <h3 style="color: black;">Email</h3>
             <input type="email"  class="form-control" name="email" id="email" placeholder="Enter Email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email
