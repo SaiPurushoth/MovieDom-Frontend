@@ -17,7 +17,7 @@
             <div [innerHTML]="notFound"></div>
         </ng-template>
       </div>
-      <input type="date" class="dateTerm" style="margin-right:1%" #dat required>
+      <input type="date" value="{{date|date:'yyyy-MM-dd'}}" class="date" style="margin-right:1%;width: 80%;" #dat required>
       <button type="submit" (click)="search(dat.value)"><i class="fa fa-search"></i></button>
     </form>
   </div>

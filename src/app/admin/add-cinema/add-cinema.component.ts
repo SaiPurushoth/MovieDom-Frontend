@@ -15,6 +15,15 @@ export class AddCinemaComponent implements OnInit {
     ) { }
   list:any
   cinema:any
+  theatername:any
+  cityname:any
+  ticket:any
+  noofrows:any
+  noofcolumns:any
+  imageurl:any
+  unique(value:any, index:any, self:any){
+    return self.indexOf(value) === index
+  }
   ngOnInit(): void {
     if(localStorage.getItem('role')!='admin')
     {
@@ -24,16 +33,72 @@ export class AddCinemaComponent implements OnInit {
 
 
 
+    this.cinemaservice.allCinema().subscribe(
+      res=>{
+          let array=[]
+          for(let item of res)
+          {
+
+            array.push(item.name)
+          }
+
+          this.cinema = array.filter(this.unique)
+      },
+      error=>{this.notifyservice.showError("Try Again", "ERROR")
+      this.route.navigate(['/home'])}
+    )
+
    
 
 
    this.movieservice.listMovie().subscribe(
-     res=>{this.list=res}
+     res=>{this.list=res},
+             err=>{
+      this.notifyservice.showError("Try Again", "ERROR")
+      this.route.navigate(['/home'])
+     }
    )
   }
 
 
+result(value:any)
+{
+  console.log(value)
+if(value=="")
+{
+  this.theatername=""
+  this.cityname=""
+  this.ticket=""
+  this.noofrows=""
+  this.noofcolumns=""
+  this.imageurl=""
+}
+else
+{
+this.cinemaservice.allCinema().subscribe(
+  
+    res=>{
+    for(let detail of res)
+    {
+      let title=detail.name
+      if(title.toLowerCase()==value.toLowerCase())
+      {
+        this.theatername=detail.name
+        this.cityname=detail.city
+        this.ticket=detail.ticketPrice
+        this.noofrows=detail.rows
+        this.noofcolumns=detail.columns
+        this.imageurl=detail.image
+        break;
+      }
+    }
+    
+    }
+  
+)
+  }
 
+}
 
 
 
@@ -43,7 +108,6 @@ export class AddCinemaComponent implements OnInit {
     res=>{this.notifyservice.showSuccess("add Cinema done","SUCCESS")
     this.route.navigate(['/home'])},
     err=>{
-      console.log(err)
      this.notifyservice.showError("Enter Details Correctly", "ERROR")
     }
   )

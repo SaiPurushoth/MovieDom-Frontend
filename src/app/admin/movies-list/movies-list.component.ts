@@ -23,7 +23,10 @@ export class MoviesListComponent implements OnInit {
 
    this.movieservice.getallMovies().subscribe(
      res=>{this.list=res
-    }  
+    },         err=>{
+      this.notifyservice.showError("Try Again", "ERROR")
+      this.route.navigate(['/home'])
+     }  
    )
 
   }
@@ -51,7 +54,6 @@ export class MoviesListComponent implements OnInit {
     this.notifyservice.showSuccess('delete done',"SUCCESS")
     this.route.navigate(['/home'])},
   error:(err)=>{ 
-    console.log(err)
      this.notifyservice.showError("delete cannot be done", "ERROR")
   this.route.navigate(['/home'])}
   })

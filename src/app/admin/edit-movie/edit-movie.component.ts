@@ -18,11 +18,20 @@ export class EditMovieComponent implements OnInit {
       this.notifyservice.showError("you are not admin", "ERROR")
       this.route.navigate(['/home'])
     }
- this.movieservice.getMovie(this.movieservice.getMovieId()).subscribe(
+
+    const id=this.movieservice.getMovieId()
+    if(id==undefined)
+    {
+     this.notifyservice.showError("Try Again", "ERROR")
+     this.route.navigate(['/home'])
+    }
+ this.movieservice.getMovie(id).subscribe(
    res=>{
       this.list=res
-   },
-   err=>{console.log(err)}
+   },         err=>{
+    this.notifyservice.showError("Try Again", "ERROR")
+    this.route.navigate(['/home'])
+   }
  )
 
 
@@ -32,9 +41,8 @@ export class EditMovieComponent implements OnInit {
     if(localStorage.getItem('role')=='admin'){
      this.movieservice.updateMovie(title,language,genere,cast,director,description,duration,releaseDate,image).subscribe(
        res=>{this.notifyservice.showSuccess("add movies done","SUCCESS")
-         this.route.navigate(['\home'])},
+         this.route.navigate(['/home'])},
          err=>{
-           console.log(err)
           this.notifyservice.showError("Enter Details Correctly", "ERROR")
          }
          

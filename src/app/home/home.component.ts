@@ -56,11 +56,11 @@ export class HomeComponent implements OnInit {
   }
  
   onChangeSearch(val: string) {
- 
+   this.city=""
   }
   
   onFocused(e:any){
-  
+  this.city=""
   }
 
 
@@ -68,7 +68,6 @@ search(dat:any)
 {
 this.date=dat
   this.city=this.city.toLowerCase()
-  console.log(this.city)
  this.cinemaservice.searchCinema(this.city,dat).subscribe(
   res=>{this.cinemas=res},
   error=>{this.notifyService.showError("Try Again", "ERROR")

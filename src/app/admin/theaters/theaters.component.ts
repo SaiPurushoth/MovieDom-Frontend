@@ -22,7 +22,10 @@ export class TheatersComponent implements OnInit {
 
    this.cinemaservice.allCinema().subscribe(
      res=>{this.list=res
-    }  
+    }  ,         err=>{
+      this.notifyservice.showError("Try Again", "ERROR")
+      this.route.navigate(['/home'])
+     }
    )
 
 
@@ -45,6 +48,8 @@ delete(id:any)
 {
   if(localStorage.getItem('role')=='admin')
   {
+  if(confirm("are you sure ?"))
+{
 this.cinemaservice.deleteCinema(id).subscribe({
 next:(data)=>{
   this.notifyservice.showSuccess('delete done',"SUCCESS")
@@ -54,6 +59,7 @@ error:(err)=>{
    this.notifyservice.showError("delete cannot be done", "ERROR")
 this.route.navigate(['/home'])}
 })
+}
   }
   else
 {

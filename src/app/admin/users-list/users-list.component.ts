@@ -15,11 +15,11 @@ export class UsersListComponent implements OnInit {
   ngOnInit(): void {
     if(localStorage.getItem('role')=='admin'){
     this.userservice.listUser().subscribe(
-      res=>{this.list=res},
-      err=>{
-        console.log(err)
-        alert('not fetched properly')}
-    )
+      res=>{this.list=res},       
+        err=>{
+        this.notifyservice.showError("Try Again", "ERROR")
+        this.route.navigate(['/home'])
+       })
   }
   else{
     this.notifyservice.showError("You are not a admin", "ERROR")
@@ -29,15 +29,17 @@ export class UsersListComponent implements OnInit {
 
 makeAdmin(id:any){
   if(localStorage.getItem('role')=='admin'){
+    if(confirm("are you sure ?"))
+    {
     this.userservice.changeAdmin(id).subscribe(
       res=>{this.notifyservice.showSuccess('change to admin done',"SUCCESS")
       this.route.navigate(['/home'])
       },
       err=>{
-        console.log(err)
         this.notifyservice.showError("make admin error", "ERROR")
         this.route.navigate(['/home'])}
     )
+      }
   }
   else{
     

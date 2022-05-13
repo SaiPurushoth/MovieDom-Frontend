@@ -26,13 +26,26 @@ moviename:any
     }
 
    this.movieservice.listMovie().subscribe(
-     res=>{this.list=res}
+     res=>{this.list=res},
+      err=>{
+      this.notifyservice.showError("Try Again", "ERROR")
+      this.route.navigate(['/home'])
+     }
    )
    const id=this.cinemaservice.getTheaterId()
+   if(id==undefined)
+   {
+    this.notifyservice.showError("Try Again", "ERROR")
+    this.route.navigate(['/home'])
+   }
    this.cinemaservice.getCinema(id).subscribe(
      res=>{this.item=res
       this.movieservice.getMovie(this.item.movieId).subscribe(
-        res=>{this.moviename=res}
+        res=>{this.moviename=res},         
+        err=>{
+          this.notifyservice.showError("Try Again", "ERROR")
+          this.route.navigate(['/home'])
+         }
       )
       
     }
@@ -53,8 +66,8 @@ moviename:any
 
 
     error:(err)=>{
-      console.log(err)
      this.notifyservice.showError("Enter Details Correctly", "ERROR")
+     this.route.navigate(['/home'])
     }
     })
     }

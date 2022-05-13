@@ -33,13 +33,13 @@
       <fieldset>
         <input value="{{item.startAt}}" placeholder="Show Start time" type="text" tabindex="3" required #startAt>
       </fieldset>
-      <h5>Release Date:</h5>
+      <h5>Show Date:</h5>
       <fieldset>
-        <input value="{{item.date}}" placeholder="Release Date of Movie" type="date" tabindex="3" required #date>
+        <input value="{{item.date | date:'yyyy-MM-dd'}}" placeholder="Show Date of Movie" type="date" tabindex="3" required #date>
       </fieldset>
       <h5>Image Url:</h5>
       <fieldset>
-        <input value="{{item.image}}" placeholder="Imaage Url of Movie" type="url" tabindex="4" required #image>
+        <input value="{{item.image}}" placeholder="Imaage Url of Theater" type="url" tabindex="4" required #image>
       </fieldset>
 
       <fieldset>
