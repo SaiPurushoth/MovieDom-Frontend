@@ -4,7 +4,9 @@ import { AuthGuard } from '../auth.guard';
 import { HomeComponent } from '../home/home.component';
 import { AddCinemaComponent } from './add-cinema/add-cinema.component';
 import { AddMoviesComponent } from './add-movies/add-movies.component';
+import { EditMovieComponent } from './edit-movie/edit-movie.component';
 import { EditTheatersComponent } from './edit-theaters/edit-theaters.component';
+import { MoviesListComponent } from './movies-list/movies-list.component';
 import { TheatersComponent } from './theaters/theaters.component';
 import { UsersListComponent } from './users-list/users-list.component';
 
@@ -16,7 +18,9 @@ const routes: Routes = [
   {path:'userDetails',component:UsersListComponent,canActivate:[AuthGuard]},
   {path:'addCinema',component:AddCinemaComponent,canActivate:[AuthGuard]},
   {path:'theaters',component:TheatersComponent,canActivate:[AuthGuard]},
-  {path:'editTheaters',component:EditTheatersComponent,canActivate:[AuthGuard]}
+  {path:'editTheaters',component:EditTheatersComponent,canActivate:[AuthGuard]},
+  {path:'movies',component:MoviesListComponent,canActivate:[AuthGuard]},
+  {path:'editMovie',component:EditMovieComponent,canActivate:[AuthGuard]}
 
 ];
 

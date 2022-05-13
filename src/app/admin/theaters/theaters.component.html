@@ -10,7 +10,7 @@
             <h3>Movie Name : <span style="color: crimson;">{{item.movieName  | titlecase}}</span></h3>
           </td>
           <td >
-            <h3>City : <span style="color: crimson;">{{item.city }}</span></h3> 
+            <h3>City : <span style="color: crimson;">{{item.city | titlecase}}</span></h3> 
         </td>
         </tr>
         <tr style="text-align: center;">
@@ -25,6 +25,7 @@
         </td>
         </tr>
         <button id="book" (click)="edit(item.id)">Edit</button>
+        <button id="book" style="margin-left: 1%;" (click)="delete(item.id)">Delete</button>
         </div>
   </div>
   </div>

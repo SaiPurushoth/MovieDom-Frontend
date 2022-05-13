@@ -54,10 +54,8 @@ export class ReservationComponent implements OnInit {
         }
         console.log(this.booked)
         console.log(this.cstatus)
-      },
-      error=>{
-        console.log(error)
-      }
+      }    ,  error=>{this.notifyService.showError("Try Again", "ERROR")
+      this.route.navigate(['/home'])}
       
       )  
       
@@ -88,7 +86,6 @@ for(let j=0;j<this.rows.length;j++ )
         this.route.navigate(['/details/booked'])
       },
       error=>{this.notifyService.showError("Try to do it again", "ERROR"),
-      console.log(error)
       this.route.navigate(['/home'])}
       
     )
@@ -110,7 +107,6 @@ this.total=this.total+this.price;
 this.status[n1][Number(n2)]=true
 
 this.seats.push(chair)
-console.log(this.seats)
 }
 else if(index2>-1)
 {
@@ -121,7 +117,6 @@ else
   this.total=this.total-this.price
   this.status[n1][Number(n2)]=false
   this.seats.splice(index1, 1)
-  console.log(this.seats)
 }
 }
 

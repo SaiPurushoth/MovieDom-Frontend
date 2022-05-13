@@ -28,7 +28,7 @@ name=""
         this.notifyService.showSuccess("successfully Registered !!", "WELCOME")
         this.route.navigate(['/home'])},
 
-      error=>{this.notifyService.showError("Enter details correctly"+error, "ERROR")}
+      error=>{this.notifyService.showError("Enter details correctly", "ERROR")}
     
     )
     }

@@ -15,7 +15,9 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
    this.userservice.getUser().subscribe(
-     res=>{this.user=res}
+     res=>{this.user=res},
+     error=>{this.notifyService.showError("Try Again", "ERROR")
+     this.route.navigate(['/home'])}
    )
   }
   update(name:string,email:string,password:string,phone:string)
@@ -24,7 +26,7 @@ export class ProfileComponent implements OnInit {
        res=>{
         this.notifyService.showSuccess("successfully Updated !!", "UPDATE")
          this.route.navigate(['/home'])},
-         error=>{this.notifyService.showError("Incorrect usename or password", "ERROR")}
+         error=>{this.notifyService.showError("Incorrect value Entered", "ERROR")}
          
      )
   }

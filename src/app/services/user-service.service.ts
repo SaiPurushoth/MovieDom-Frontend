@@ -81,4 +81,9 @@ isAdmin()
  }
 }
 
+changeAdmin(id:any){
+  const url = 'http://localhost:9000/users/makeAdmin/'+id;
+  return this.http.get(url)
+}
+
 }

@@ -12,6 +12,9 @@
         <td>
           <h3>User Phone: <span style="color: crimson;">{{item.phone | titlecase}}</span></h3>
         </td>
+        <td>
+          <button id="book" style="margin-left: 1%;" (click)="makeAdmin(item.id)">Make Admin</button>
+        </td>
         </tr>
         </div>
   </div>

@@ -24,8 +24,11 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
       this.cinemaservice.listCinema().subscribe(
         res=>{this.cinemas=res
-        }  
+        }  ,
+        error=>{this.notifyService.showError("Try Again", "ERROR")
+        this.route.navigate(['/home'])}
       )
+
       this.cinemaservice.allCinema().subscribe(
         res=>{
             let list=[]
@@ -36,10 +39,9 @@ export class HomeComponent implements OnInit {
             }
 
             this.data = list.filter(this.unique)
-
-
-
-        }
+        },
+        error=>{this.notifyService.showError("Try Again", "ERROR")
+        this.route.navigate(['/home'])}
       )
 
   }
@@ -84,7 +86,9 @@ this.route.navigate(['/home'])}
 cinemaDetail(id:any){
   this.cinemaservice.getCinema(id).subscribe(
     res=>{this.cinemaservice.setCinemaInfoformation(res)
-      this.route.navigate(['/details/cinemaDetail'])}
+      this.route.navigate(['/details/cinemaDetail'])},  
+      error=>{this.notifyService.showError("Try Again", "ERROR")
+      this.route.navigate(['/home'])}
   )
 }
 
@@ -94,7 +98,9 @@ movieDetail(id:any)
   this.movieservice.getMovie(id).subscribe(
     res=>{this.movieservice.setMovieInfoformation(res)
       this.route.navigate(['details/movieDetail'])
-    }
+    },
+    error=>{this.notifyService.showError("Try Again", "ERROR")
+    this.route.navigate(['/home'])}
   )
 }
 

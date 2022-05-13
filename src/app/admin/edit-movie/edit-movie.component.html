@@ -1,0 +1,45 @@
+<div class="container">  
+    <form id="contact" >
+      <h3>Add Movies</h3>
+      <h5>Title:</h5>
+      <fieldset>
+        <input value="{{list.title}}" placeholder="Title of Movie" type="text" tabindex="1" required autofocus #title>
+      </fieldset>
+      <h5>Language:</h5>
+      <fieldset>
+        <input value="{{list.language}}" placeholder="Language of Movie" type="text" tabindex="2" required #language>
+      </fieldset>
+      <h5>Genere:</h5>
+      <fieldset>
+        <input value="{{list.genere}}" placeholder="Genere of Movie" type="text" tabindex="2" required #genere>
+      </fieldset>
+      <h5>Cast:</h5>
+      <fieldset>
+        <input value="{{list.cast}}" placeholder="Cast of Movie" type="text" tabindex="2" required #cast> 
+      </fieldset>
+      <h5>Director:</h5>
+      <fieldset>
+        <input value="{{list.director}}" placeholder="Director of Movie" type="text" tabindex="2" required #director> 
+      </fieldset>
+      <h5>Description:</h5>
+      <fieldset>
+        <textarea value="{{list.description}}" placeholder="Description of Movie" tabindex="5" required #description></textarea>
+      </fieldset>
+      <h5>Duration:(mins)</h5>
+      <fieldset>
+        <input value="{{list.duration}}" placeholder="Movie Duration of Movie" type="number" tabindex="3" required #duration>
+      </fieldset>
+      <h5>Release Date:</h5>
+      <fieldset>
+        <input value="{{list.releaseDate | date}}" placeholder="Release Date of Movie" type="date" tabindex="3" required #releaseDate>
+      </fieldset>
+      <h5>Image Url:</h5>
+      <fieldset>
+        <input value="{{list.image}}" placeholder="Imaage Url of Movie" type="url" tabindex="4" required #image>
+      </fieldset>
+      <fieldset>
+        <button name="submit" type="submit" id="contact-submit" (click)="submit(title.value,language.value,genere.value,cast.value,director.value,description.value,duration.value,releaseDate.value,image.value)" data-submit="...Sending">Submit</button>
+      </fieldset>
+    
+    </form>
+  </div>

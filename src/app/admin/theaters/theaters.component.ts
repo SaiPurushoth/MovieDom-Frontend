@@ -40,4 +40,26 @@ edit(id:any)
   this.route.navigate(['/home'])
 }
 }
+
+delete(id:any)
+{
+  if(localStorage.getItem('role')=='admin')
+  {
+this.cinemaservice.deleteCinema(id).subscribe({
+next:(data)=>{
+  this.notifyservice.showSuccess('delete done',"SUCCESS")
+  this.route.navigate(['/home'])},
+error:(err)=>{ 
+  console.log(err)
+   this.notifyservice.showError("delete cannot be done", "ERROR")
+this.route.navigate(['/home'])}
+})
+  }
+  else
+{
+  this.notifyservice.showError("you are not admin", "ERROR")
+  this.route.navigate(['/home'])
+}
+}
+
 }

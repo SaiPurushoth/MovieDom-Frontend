@@ -27,4 +27,22 @@ export class UsersListComponent implements OnInit {
   }
 }
 
+makeAdmin(id:any){
+  if(localStorage.getItem('role')=='admin'){
+    this.userservice.changeAdmin(id).subscribe(
+      res=>{this.notifyservice.showSuccess('change to admin done',"SUCCESS")
+      this.route.navigate(['/home'])
+      },
+      err=>{
+        console.log(err)
+        this.notifyservice.showError("make admin error", "ERROR")
+        this.route.navigate(['/home'])}
+    )
+  }
+  else{
+    
+    this.route.navigate(['/home'])
+  }
+}
+
 }

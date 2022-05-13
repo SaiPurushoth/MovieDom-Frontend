@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NotificationService } from '../services/notification.service';
 import { ReservationServiceService } from '../services/reservation-service.service';
 
 @Component({
@@ -9,11 +11,13 @@ import { ReservationServiceService } from '../services/reservation-service.servi
 export class RecordComponent implements OnInit {
 
   list:any
-  constructor(private reservationservice:ReservationServiceService) { }
+  constructor(private reservationservice:ReservationServiceService,private route:Router,private notifyservice:NotificationService) { }
 
   ngOnInit(): void {
     this.reservationservice.records().subscribe(
-      res=>{this.list=res}
+      res=>{this.list=res},
+      error=>{this.notifyservice.showError("Try Again", "ERROR")
+      this.route.navigate(['/home'])}
     )
   }
 

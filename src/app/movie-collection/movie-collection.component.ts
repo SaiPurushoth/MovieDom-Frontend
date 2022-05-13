@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CinemaServiceService } from '../services/cinema-service.service';
 import { MovieServiceService } from '../services/movie-service.service';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-movie-collection',
@@ -10,12 +11,14 @@ import { MovieServiceService } from '../services/movie-service.service';
 })
 export class MovieCollectionComponent implements OnInit {
   movies:any
-  constructor(private movieservice:MovieServiceService,private route:Router,private cinemaservice:CinemaServiceService) { }
+  constructor(private movieservice:MovieServiceService,private route:Router,private cinemaservice:CinemaServiceService,private notifyservice:NotificationService) { }
 
   ngOnInit(): void {
      this.movieservice.getallMovies().subscribe(
        res=>{this.movies=res},
-       err=>{console.log(err)});
+       error=>{this.notifyservice.showError("Try Again", "ERROR")
+       this.route.navigate(['/'])}
+       );
        
   }
   select(id:any){
@@ -24,11 +27,12 @@ export class MovieCollectionComponent implements OnInit {
   }
   movieDetail(id:any)
   {
-    console.log(id)
     this.movieservice.getMovie(id).subscribe(
       res=>{this.movieservice.setMovieInfoformation(res)
         this.route.navigate(['details/movieDetail'])
-      }
+      },
+      error=>{this.notifyservice.showError("Try Again", "ERROR")
+       this.route.navigate(['/home'])}
     )
   }
 }

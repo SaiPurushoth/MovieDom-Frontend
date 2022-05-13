@@ -7,6 +7,16 @@ import { Observable } from 'rxjs';
 })
 export class MovieServiceService {
   movieInfo:any
+  movieId:any
+
+  getMovieId()
+  {
+    return this.movieId;
+  }
+  setMovieId(id:any)
+  {
+    this.movieId=id
+  }
   constructor(private http: HttpClient) { }
   getMovieInfomation(){
     return this.movieInfo
@@ -44,5 +54,19 @@ getallMovies():Observable<any>{
   }
   return this.http.post(url,obj); 
  }
-
+updateMovie(title:any,language:any,genere:any,cast:any,director:any,description:any,duration:any,releaseDate:any,image:any){
+  const url = 'http://localhost:9000/movies/update/'+this.movieId;
+  let obj={
+    title:title,
+    language:language,
+    genere:genere,
+    cast:cast,
+    director:director,
+    description:description,
+    duration:duration,
+    releaseDate:releaseDate,
+    image:image
+  }
+  return this.http.patch(url,obj); 
+}
 }

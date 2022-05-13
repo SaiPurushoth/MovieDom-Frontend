@@ -40,8 +40,10 @@ export class CinemaServiceService {
   }
  listCinema():Observable<any>
  {
+
   const url = 'http://localhost:9000/cinemas/list/'+this.movieId;
   return this.http.get(url);
+   
  }
  searchCinema(city:string,date:any):Observable<any>{
   const url = 'http://localhost:9000/cinemas/search/'+this.movieId+'/'+city+'/'+date;
@@ -83,5 +85,9 @@ updateCinema(name:any,city:any,ticketPrice:any,rows:any,columns:any,movie:any,st
 
   return this.http.patch(url,obj); 
 }
-
+deleteCinema(id:any)
+{
+  const url = 'http://localhost:9000/cinemas/delete/'+id;
+  return this.http.get(url); 
+}
 }

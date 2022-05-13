@@ -14,6 +14,7 @@ export class AddCinemaComponent implements OnInit {
   constructor(private movieservice:MovieServiceService,private cinemaservice:CinemaServiceService,private route:Router,private notifyservice:NotificationService
     ) { }
   list:any
+  cinema:any
   ngOnInit(): void {
     if(localStorage.getItem('role')!='admin')
     {
@@ -21,10 +22,20 @@ export class AddCinemaComponent implements OnInit {
       this.route.navigate(['/home'])
     }
 
+
+
+   
+
+
    this.movieservice.listMovie().subscribe(
      res=>{this.list=res}
    )
   }
+
+
+
+
+
 
   submit(name:any,city:any,ticketPrice:any,rows:any,columns:any,movie:any,startAt:any,date:any,image:any){
     if(localStorage.getItem('role')=='admin'){
