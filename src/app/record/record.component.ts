@@ -16,7 +16,9 @@ export class RecordComponent implements OnInit {
   ngOnInit(): void {
     this.reservationservice.records().subscribe(
       res=>{this.list=res},
-      error=>{this.notifyservice.showError("Try Again", "ERROR")
+      error=>{
+        console.log(error)
+        this.notifyservice.showError("Try Again", "ERROR")
       this.route.navigate(['/home'])}
     )
   }

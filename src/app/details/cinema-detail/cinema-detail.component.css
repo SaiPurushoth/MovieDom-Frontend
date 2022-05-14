@@ -21,3 +21,50 @@
     background-color: lightcoral;
     color: white;
   }
+  .column {
+    float: left;
+    width:30%;
+    padding: 0 2px;
+    margin-bottom: 20px;
+    margin-left: 35%;
+
+  }
+  
+  .row {margin: 0 -5px;}
+  
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  
+  @media screen and (max-width: 800px) {
+    .column {
+      width: 90%;
+      display: block;
+      margin-bottom: 20px;
+      margin-left: 3%;
+    }
+  } 
+  
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .container {
+    padding: 2px 16px;
+  }
+  img{
+    height: 300px;
+  }
+
+  span{
+    color: dodgerblue;
+  }

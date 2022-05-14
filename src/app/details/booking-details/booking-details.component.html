@@ -1,5 +1,78 @@
 <h1>Booking Details</h1>
 
+<div class="row" *ngIf="bookinfo" >
+    <div class="column" >
+      <div class="card">
+        <div class="container" style="text-align: center;">
+
+            <table id="booking" >
+
+                <tr style="text-align:center">
+                   <td><h3>Date : </h3></td>
+                   <td><span><h3>{{bookinfo.date | date }}</h3></span></td>
+                 </tr>
+                 <tr style="text-align:center">
+                   <td><h3>Email :</h3> </td>
+                   <td><span><h3>{{bookinfo.email }}</h3></span></td>   
+                </tr>
+                <tr style="text-align:center">
+                   <td><h3>Phone :</h3> </td>
+                   <td><span><h3>{{bookinfo.phone}}</h3></span></td>      
+                </tr>
+                <tr style="text-align:center">
+                    <td><h3>TheaterName :</h3></td>
+                    <td><span><h3>{{bookinfo.theaterName }}</h3></span></td>
+                </tr>
+                <tr style="text-align:center">
+                   <td><h3>MovieName :</h3> </td>
+                   <td><span><h3>{{bookinfo.movieName }}</h3></span></td>
+               </tr>
+               <tr style="text-align:center">
+                   <td><h3>TicketPrice : </h3></td>
+                   <td><span><h3>{{bookinfo.ticketPrice | currency:'INR'}}</h3></span></td>
+               </tr>
+               <tr style="text-align:center">
+                   <td><h3>Show Timing :</h3> </td>
+                   <td><span><h3>{{bookinfo.startAt}}</h3></span></td>
+               </tr>
+               <tr style="text-align:center">
+                   <td><h3>Seats Booked : </h3></td>
+                   <td><span><h3>{{bookinfo.seats}}</h3></span></td>
+               </tr>
+               <tr style="text-align:center">
+                   <td><h3>Total Amount :</h3> </td>
+                   <td><span><h3>{{bookinfo.total | currency:'INR'}}</h3></span></td>
+               </tr>
+              </table>
+          <!-- <h1>Confirmation</h1> 
+          <h3>Date : <span>{{bookinfo.date | date }}</span></h3> 
+          <h3>Email :  <span>{{bookinfo.email }}</span></h3>
+          <h3>Phone :  <span>{{bookinfo.phone}}</span></h3>
+          <h3>TheaterName : <span>{{bookinfo.theaterName }}</span></h3>
+          <h3>MovieName : <span>{{bookinfo.movieName }}</span></h3>
+          <h3>TicketPrice : <span>{{bookinfo.ticketPrice | currency:'INR'}}</span></h3>
+          <h3>Show Timing : <span>{{bookinfo.startAt}}</span></h3>
+          <h3>Seats Booked : <span>{{bookinfo.seats}}</span></h3>
+          <h3>Total Amount : <span>{{bookinfo.total | currency:'INR'}}</span></h3> -->
+        </div>
+        <button id="book" >print</button>
+      </div>
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
 
 
 <table *ngIf="bookinfo" id="booking" >
@@ -40,5 +113,5 @@
         <td>Total Amount : </td>
         <td>{{bookinfo.total | currency:'INR'}}</td>
     </tr>
-   </table>
-   <button id="book" >print</button>
+   </table> -->
+ 
