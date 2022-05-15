@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
         this.notifyService.showSuccess("successfully logged-in !!", "WELCOME")
         this.route.navigate(['/home'])
     },
-    error=>{this.notifyService.showError("Incorrect usename or password", "ERROR")}
+    error=>{this.notifyService.showError("Incorrect Details", "ERROR")}
    
     )
     

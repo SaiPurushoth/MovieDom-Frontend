@@ -19,16 +19,12 @@ name=""
   register(name:string,email:string,password:string,phone:string){
     this.usrService.registerUser(name,email,password,phone).subscribe(
     res=>{
-      localStorage.setItem('role',res.role)
-        this.navservice.log=true
-        this.navservice.unlog=false
-        localStorage.setItem('id',res.id)
-        localStorage.setItem('token',res.token)
+        this.notifyService.showInfo("Link sent to your mail","Verifiy Email")
+        this.route.navigate(['/registration/login'])},
 
-        this.notifyService.showSuccess("successfully Registered !!", "WELCOME")
-        this.route.navigate(['/home'])},
-
-      error=>{this.notifyService.showError("Enter details correctly", "ERROR")}
+      error=>{
+        console.log(error)
+        this.notifyService.showError("Enter details correctly", "ERROR")}
     
     )
     }
