@@ -1,0 +1,30 @@
+<div class="row" *ngIf="list.length>0;">
+    <div class="column" *ngFor="let item of list" >
+      <div class="card">
+            <tr style="text-align: center;">
+        <td>
+            <h3>Date : <span style="color: crimson;">{{item.date | date}}</span></h3>
+          </td>
+
+        <td >
+            <h3>User Name : <span style="color: crimson;">{{item.username | titlecase}}</span></h3> 
+        </td>
+        <td>
+            <h3>Total Cost : <span style="color: crimson;">{{item.total | currency:'INR' }}</span></h3>
+          </td>
+        </tr>
+        <tr style="text-align: center;">
+            <td>
+                <h3>Movie Name : <span style="color: crimson;">{{item.moviename  | titlecase}}</span></h3>
+              </td>
+    
+            <td >
+                <h3>Cinema Name : <span style="color: crimson;">{{item.cinemaname | titlecase }}</span></h3> 
+            </td>
+            <td>
+                <h3>Seats : <span style="color: crimson;">{{item.seats}}</span></h3>
+              </td>
+            </tr>
+        </div>
+  </div>
+  </div>

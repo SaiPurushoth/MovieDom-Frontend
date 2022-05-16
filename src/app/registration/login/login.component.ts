@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
 
         localStorage.setItem('role',res.role)
         localStorage.setItem('token',res.token)
+        localStorage.setItem('refreshToken',res.refreshToken)
         this.navservice.log=true
         this.navservice.unlog=false
         this.notifyService.showSuccess("successfully logged-in !!", "WELCOME")

@@ -8,6 +8,7 @@ import { EditMovieComponent } from './edit-movie/edit-movie.component';
 import { EditTheatersComponent } from './edit-theaters/edit-theaters.component';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { TheatersComponent } from './theaters/theaters.component';
+import { UserReservationComponent } from './user-reservation/user-reservation.component';
 import { UsersListComponent } from './users-list/users-list.component';
 
 
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path:'theaters',component:TheatersComponent,canActivate:[AuthGuard]},
   {path:'editTheaters',component:EditTheatersComponent,canActivate:[AuthGuard]},
   {path:'movies',component:MoviesListComponent,canActivate:[AuthGuard]},
-  {path:'editMovie',component:EditMovieComponent,canActivate:[AuthGuard]}
+  {path:'editMovie',component:EditMovieComponent,canActivate:[AuthGuard]},
+  {path:'reservation',component:UserReservationComponent,canActivate:[AuthGuard]}
 
 ];
 

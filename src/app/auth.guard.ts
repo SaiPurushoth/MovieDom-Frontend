@@ -12,6 +12,7 @@ export class AuthGuard implements CanActivate {
   constructor(private service:UserServiceService,private router:Router,private notifyservice:NotificationService){}
   canActivate():boolean{
     const token:any=localStorage.getItem('token')
+    const refreshtoken:any=localStorage.getItem('refreshToken')
   if(this.service.loggedIn() && !this.jwtHelper.isTokenExpired(token)){
    return true
   }
@@ -23,5 +24,7 @@ export class AuthGuard implements CanActivate {
     this.router.navigate(['registration/login'])
     return false
   }
-}
+  }
+
+
 }

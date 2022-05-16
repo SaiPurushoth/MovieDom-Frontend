@@ -102,4 +102,9 @@ bookedseats(){
   return this.http.get(url)
 }
 
+reserved(){
+  const url = "http://localhost:9000/reservations/list";
+  return this.http.get(url)
+}
+
 }

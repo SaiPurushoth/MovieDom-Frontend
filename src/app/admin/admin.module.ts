@@ -6,6 +6,7 @@ import { TheatersComponent } from './theaters/theaters.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { EditMovieComponent } from './edit-movie/edit-movie.component';
+import { UserReservationComponent } from './user-reservation/user-reservation.component';
 
 
 
@@ -14,7 +15,8 @@ import { EditMovieComponent } from './edit-movie/edit-movie.component';
     EditTheatersComponent,
     TheatersComponent,
     MoviesListComponent,
-    EditMovieComponent
+    EditMovieComponent,
+    UserReservationComponent
   ],
   imports: [
     CommonModule,

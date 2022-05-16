@@ -5,6 +5,7 @@ import { ReservationServiceService } from './reservation-service.service';
 import { Router } from '@angular/router';
 import { NotificationService } from './notification.service';
 import {JwtHelperService} from '@auth0/angular-jwt'
+import { tokenize } from '@angular/compiler/src/ml_parser/lexer';
 @Injectable({
   providedIn: 'root'
 })
@@ -62,7 +63,8 @@ loggedIn(){
 logoutUser(){
   localStorage.removeItem('token')
   localStorage.removeItem('id')
-  localStorage.removeItem('admin')
+  localStorage.removeItem('role')
+  localStorage.removeItem('refreshToken')
   this.notifyservice.showSuccess("successfully logged-out!!", "BYE!!")
   this.router.navigate(['registration/login'])
 }
@@ -86,4 +88,8 @@ changeAdmin(id:any){
   return this.http.get(url)
 }
 
+getRefreshToken(token:any):Observable<any>{
+const url = 'http://localhost:9000/users/refresh/'+token;
+return this.http.get(url)
+}
 }

@@ -2,7 +2,7 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/c
 import { Injectable, Injector } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserServiceService } from './services/user-service.service';
-
+import {JwtHelperService} from '@auth0/angular-jwt'
 @Injectable({
   providedIn: 'root'
 })
