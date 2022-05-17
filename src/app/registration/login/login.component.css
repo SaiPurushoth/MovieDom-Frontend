@@ -42,7 +42,7 @@ input{
     font-size: 18px;
     color: black;
     background-color: linen;
-
+    border: 2px solid black;
 }
 .btns{
     margin: 15px auto;

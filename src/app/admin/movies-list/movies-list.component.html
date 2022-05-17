@@ -1,4 +1,4 @@
-<div class="row" *ngIf="list.length>0;">
+<!-- <div class="row" *ngIf="list.length>0;">
     <div class="column" *ngFor="let item of list" >
       <div class="card">
             <tr style="text-align: center;">
@@ -16,5 +16,20 @@
 
         <button id="book" (click)="edit(item._id)">Edit</button>
         </div>
+  </div>
+</div>
+ -->
+
+  <div class="row">
+    <div class="column" *ngFor="let item of list">
+      <div class="card">
+        <img src={{item.image}} alt="Avatar" style="width:100%">
+        <div class="container" style="text-align: center;">
+          <h3>Movie Name: <span>{{item.title  | titlecase}}</span></h3> 
+          <h3>Language : <span>{{item.language | titlecase }}</span></h3>
+          <h3>Total Duration (mins) : <span>{{item.duration}}</span></h3>
+          <button id="book" (click)="edit(item._id)">Edit</button>
+        </div>
+      </div>
   </div>
   </div>

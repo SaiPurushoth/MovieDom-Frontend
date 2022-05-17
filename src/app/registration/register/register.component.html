@@ -14,15 +14,15 @@
         <h2 style="color: black;">Registration</h2>
         <form  #userForm="ngForm">
             <h3 style="color: black;">Name</h3>
-            <input type="text" name="username" id="username" placeholder="Enter Name" #name
-            required>
+            <input type="text" name="username" id="username" placeholder="Enter Name" #name [(ngModel)]="username" [class.invalid]="!userForm.form.controls['username']?.valid && userForm.form.controls['username']?.touched" required>
+
             <h3 style="color: black;">Email</h3>
-            <input type="email"  class="form-control" name="email" id="email" placeholder="Enter Email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email
+            <input type="email"  name="email" id="email" placeholder="Enter Email" [(ngModel)]="emailid" [class.invalid]="!userForm.form.controls['email']?.valid && userForm.form.controls['email']?.touched"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email
             required> 
             <h3 style="color: black;">Password</h3>
-            <input type="password" name="password"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" id="password" placeholder="Enter Password" required #password> 
+            <input type="password" name="password"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"  [(ngModel)]="userpassword" [class.invalid]="!userForm.form.controls['password']?.valid && userForm.form.controls['password']?.touched" id="password" placeholder="Enter Password" required #password> 
             <h3 style="color: black;">Phone</h3>
-            <input type="tel" name="phone" pattern="^\d{10}$" id="phone" placeholder="Enter Phone no" required #phone>
+            <input type="tel" name="phone" pattern="^\d{10}$" [(ngModel)]="userphone" [class.invalid]="!userForm.form.controls['phone']?.valid && userForm.form.controls['phone']?.touched" id="phone" placeholder="Enter Phone no" required #phone>
 
             <div class="btns">
                 <button type="submit" (click)="register(name.value,email.value,password.value,phone.value)">Register</button>

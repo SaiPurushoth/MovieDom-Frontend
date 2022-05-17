@@ -80,6 +80,8 @@ for(let j=0;j<this.rows.length;j++ )
 }
 
   book(){
+    if(confirm("confirm your total Amount:"+" "+"₹"+this.total))
+    {
     this.reservationservice.book(this.seats).subscribe(
 
       res=>{this.reservationservice.setBookingInfo(res)
@@ -89,7 +91,7 @@ for(let j=0;j<this.rows.length;j++ )
       this.route.navigate(['/home'])}
       
     )
-
+    }
 
   }
 

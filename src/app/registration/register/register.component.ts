@@ -13,7 +13,10 @@ import { UserServiceService } from 'src/app/services/user-service.service';
 export class RegisterComponent implements OnInit {
 name=""
   constructor(private usrService:UserServiceService,private route:Router,private navservice:NavbarServiceService,private reservationservice:ReservationServiceService,private notifyService:NotificationService) { }
-
+  username:any
+  emailid:any
+  userpassword:any
+  userphone:any
   ngOnInit(): void {
   }
   register(name:string,email:string,password:string,phone:string){

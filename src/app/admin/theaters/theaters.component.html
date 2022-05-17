@@ -1,4 +1,4 @@
-<div class="row" *ngIf="list.length>0;">
+<!-- <div class="row" *ngIf="list.length>0;">
     <div class="column" *ngFor="let item of list" >
       <div class="card">
             <tr style="text-align: center;">
@@ -27,5 +27,23 @@
         <button id="book1" (click)="edit(item.id)">Edit</button>
         <button id="book2" style="margin-left: 1%;" (click)="delete(item.id)">Delete</button>
         </div>
+  </div>
+  </div> -->
+
+
+  <div class="row">
+    <div class="column" *ngFor="let item of list">
+      <div class="card">
+        <img src={{item.image}} alt="Avatar" style="width:100%">
+        <div class="container" style="text-align: center;">
+          <h3>date : <span>{{item.date| date}}</span></h3> 
+          <h3>Theater Name : <span>{{item.name | titlecase}}</span></h3> 
+          <h3>Movie Name : <span>{{item.movieName  | titlecase}}</span></h3>
+          <h3>Show Time : <span>{{item.startAt}}</span></h3>
+          <h3>City : <span>{{item.city | titlecase}}</span></h3>
+          <button id="book" (click)="edit(item.id)">Edit</button>
+          <button id="book" style="margin-left: 1%;" (click)="delete(item.id)">Delete</button>
+        </div>
+      </div>
   </div>
   </div>

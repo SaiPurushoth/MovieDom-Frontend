@@ -77,3 +77,21 @@ table{
 tr{
     color: #363233;
 }
+@media screen and (max-width: 700px) {
+    footer {
+      display: block;
+    }
+    table{
+        margin: auto;
+    }
+    tr{
+        text-align: center;
+    }
+    .sub-main{
+        width: 30%;
+        margin: auto;
+    
+        margin-top: 20%;
+        margin-bottom: 20%;
+      }
+  } 

@@ -81,9 +81,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     margin-top: 5%;
-
   }
-  
   .cinema-seats {
     display: flex;
   }
