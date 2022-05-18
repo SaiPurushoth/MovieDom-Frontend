@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { api } from '../environmentVariables';
 
 @Injectable({
   providedIn: 'root'
@@ -82,7 +83,7 @@ return this.availableseats
   book(seats:any){
 
 
-    const url = "http://localhost:9000/reservations/book/"+this.theaterId+'/'+localStorage.getItem('id');
+    const url = api.backend+"/reservations/book/"+this.theaterId+'/'+localStorage.getItem('id');
     const obj = { 
       date:this.dateformovie,
       seats:seats
@@ -93,18 +94,21 @@ return this.availableseats
 
 
   records(){
-    const url = "http://localhost:9000/reservations/details/"+localStorage.getItem('id')
+    const url = api.backend+"/reservations/details/"+localStorage.getItem('id')
     return this.http.get(url)
   }
 
 bookedseats(){
-  const url = "http://localhost:9000/reservations/booked/"+this.theaterId;
+  const url = api.backend+"/reservations/booked/"+this.theaterId;
   return this.http.get(url)
 }
 
 reserved(){
-  const url = "http://localhost:9000/reservations/list";
+  const url = api.backend+"/reservations/list";
   return this.http.get(url)
 }
-
+deleteReservation(id:any){
+  const url = api.backend+"/reservations/delete/"+id;
+  return this.http.get(url)
+}
 }

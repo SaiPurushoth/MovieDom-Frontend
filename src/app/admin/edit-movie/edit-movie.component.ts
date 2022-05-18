@@ -40,7 +40,7 @@ export class EditMovieComponent implements OnInit {
   {
     if(localStorage.getItem('role')=='admin'){
      this.movieservice.updateMovie(title,language,genere,cast,director,description,duration,releaseDate,image).subscribe(
-       res=>{this.notifyservice.showSuccess("add movies done","SUCCESS")
+       res=>{this.notifyservice.showSuccess("edit movies done","SUCCESS")
          this.route.navigate(['/home'])},
          err=>{
           this.notifyservice.showError("Enter Details Correctly", "ERROR")

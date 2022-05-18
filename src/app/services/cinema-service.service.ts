@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
+import { api } from '../environmentVariables';
 
 @Injectable({
   providedIn: 'root'
@@ -35,27 +36,27 @@ export class CinemaServiceService {
 
   allCinema():Observable<any>
   {
-    const url = 'http://localhost:9000/cinemas/all';
+    const url = api.backend+'/cinemas/all';
     return this.http.get(url); 
   }
  listCinema():Observable<any>
  {
 
-  const url = 'http://localhost:9000/cinemas/list/'+this.movieId;
+  const url = api.backend+'/cinemas/list/'+this.movieId;
   return this.http.get(url);
    
  }
  searchCinema(city:string,date:any):Observable<any>{
-  const url = 'http://localhost:9000/cinemas/search/'+this.movieId+'/'+city+'/'+date;
+  const url = api.backend+'/cinemas/search/'+this.movieId+'/'+city+'/'+date;
   return this.http.get(url); 
  }
  getCinema(id:any):Observable<any>{
-  const url = 'http://localhost:9000/cinemas/'+id;
+  const url = api.backend+'/cinemas/'+id;
   return this.http.get(url); 
  }
 
 addCinema(name:any,city:any,ticketPrice:any,rows:any,columns:any,movie:any,startAt:any,date:any,image:any):Observable<any>{
-  const url = 'http://localhost:9000/cinemas/register'
+  const url = api.backend+'/cinemas/register'
   var obj={
     name:name,
     city:city,
@@ -70,7 +71,7 @@ addCinema(name:any,city:any,ticketPrice:any,rows:any,columns:any,movie:any,start
   return this.http.post(url,obj); 
 }
 updateCinema(name:any,city:any,ticketPrice:any,rows:any,columns:any,movie:any,startAt:any,date:any,image:any):Observable<any>{
-  const url = 'http://localhost:9000/cinemas/update/'+this.theaterId
+  const url = api.backend+'/cinemas/update/'+this.theaterId
   var obj={
     name:name,
     city:city,
@@ -87,7 +88,7 @@ updateCinema(name:any,city:any,ticketPrice:any,rows:any,columns:any,movie:any,st
 }
 deleteCinema(id:any)
 {
-  const url = 'http://localhost:9000/cinemas/delete/'+id;
+  const url = api.backend+'/cinemas/delete/'+id;
   return this.http.get(url); 
 }
 }

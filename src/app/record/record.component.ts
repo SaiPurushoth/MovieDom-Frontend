@@ -22,5 +22,19 @@ export class RecordComponent implements OnInit {
       this.route.navigate(['/home'])}
     )
   }
-
+delete(id:any){
+  if(confirm("Are You Sure To Delete Reservation")){
+  this.reservationservice.deleteReservation(id).subscribe(
+    res=>{
+      this.notifyservice.showSuccess("Reservation deleted","SUCCESS")
+      this.route.navigate(['/home']) 
+    },
+    err=>{
+      console.log(err)
+      this.notifyservice.showError("Try Again", "ERROR")
+    this.route.navigate(['/home'])
+    }
+  )
+}
+}
 }

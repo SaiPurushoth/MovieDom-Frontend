@@ -96,3 +96,14 @@
   span{
     color: crimson;
   }
+  @media screen and (max-width: 380px) {
+    .column {
+
+      margin-left:0;
+    }
+    .container {
+      padding: 2px 0;
+  
+  
+    }
+  }

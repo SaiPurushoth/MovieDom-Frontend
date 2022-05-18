@@ -20,6 +20,7 @@
     "@angular/router": "~13.3.0",
     "@auth0/angular-jwt": "^5.0.2",
     "angular-ng-autocomplete": "^2.0.8",
+    "angularx-social-login": "^4.1.0",
     "ng-image-slider": "^2.8.0",
     "ngx-toastr": "^14.3.0",
     "rxjs": "~7.5.0",

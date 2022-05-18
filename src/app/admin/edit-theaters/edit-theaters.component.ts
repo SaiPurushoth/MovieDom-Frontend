@@ -54,12 +54,12 @@ moviename:any
 
 
   submit(name:any,city:any,ticketPrice:any,rows:any,columns:any,movie:any,startAt:any,date:any,image:any){
-
+ console.log(movie)
     if(localStorage.getItem('role')=='admin'){
 
   this.cinemaservice.updateCinema(name,city,ticketPrice,rows,columns,movie,startAt,date,image).subscribe({
     next:(data)=>{
-          this.notifyservice.showSuccess("add Cinema done","SUCCESS")
+          this.notifyservice.showSuccess("edit Cinema done","SUCCESS")
 
     this.route.navigate(['/home'])
   },

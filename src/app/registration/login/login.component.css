@@ -69,3 +69,9 @@ button:hover{
     }
 
 }
+@media screen and (max-width: 380px) {
+    .container{
+        margin: auto;
+        width: 300px;
+        } 
+}

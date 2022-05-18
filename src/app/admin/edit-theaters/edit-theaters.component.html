@@ -1,5 +1,5 @@
 <div class="container">  
-    <form id="contact" (ngSubmit)="submit(name.value,city.value,ticketPrice.value,rows.value,columns.value,movie.value,startAt.value,date.value,image.value)">
+    <form id="contact" >
       <h3>Edit Cinema</h3>
       <h5>Theater Name:</h5>
       <fieldset>
@@ -43,7 +43,7 @@
       </fieldset>
 
       <fieldset>
-        <button type="submit" id="contact-submit" >Submit</button>
+        <button type="submit" id="contact-submit" (click)="submit(name.value,city.value,ticketPrice.value,rows.value,columns.value,movie.value,startAt.value,date.value,image.value)" >Submit</button>
       </fieldset>
     
     </form>

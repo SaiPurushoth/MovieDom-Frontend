@@ -143,3 +143,12 @@ form.example input[type=text] ,form.example input[type=date]{
   img{
     height: 350px;
   }
+
+  @media screen and (max-width: 380px) {
+    .column {
+      width: 70%;
+      display: block;
+      margin-left: 10%;
+      margin-bottom: 10%;
+    }
+}

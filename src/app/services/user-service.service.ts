@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { NotificationService } from './notification.service';
 import {JwtHelperService} from '@auth0/angular-jwt'
 import { tokenize } from '@angular/compiler/src/ml_parser/lexer';
+import { api } from '../environmentVariables';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,19 +16,21 @@ export class UserServiceService {
   constructor(private http: HttpClient,private reservationservice:ReservationServiceService,private router:Router,private notifyservice:NotificationService) { }
 
   loginUser(email:string, password:string):Observable<any> {
-    const url = 'http://localhost:9000/users/login';
+    const url = api.backend+'/users/login';
     const obj = { 
       email: email, 
       password: password 
     }; 
     return this.http.post(url, obj)
   }
+
   listUser():Observable<any>{
-    const url = 'http://localhost:9000/users/list';
+    const url = api.backend+'/users/list';
     return this.http.get(url)
   }
+
   registerUser(name:string,email:string,password:string,phone:string):Observable<any>{
-    const url = 'http://localhost:9000/users/register';
+    const url = api.backend+'/users/register';
     const obj = { 
       name:name,
       email: email, 
@@ -37,14 +40,15 @@ export class UserServiceService {
     };
     return this.http.post(url, obj)
   }
+
   getUser(){
     const id=localStorage.getItem('id')
-    const url = 'http://localhost:9000/users/one/'+id;
+    const url = api.backend+'/users/one/'+id;
     return this.http.get(url)
 
   }
 updateUser(name:string,email:string,password:string,phone:string){
-    const url = 'http://localhost:9000/users/update/'+localStorage.getItem('id');
+    const url = api.backend+'/users/update/'+localStorage.getItem('id');
     const obj = { 
       name:name,
       email: email, 
@@ -84,12 +88,12 @@ isAdmin()
 }
 
 changeAdmin(id:any){
-  const url = 'http://localhost:9000/users/makeAdmin/'+id;
+  const url = api.backend+'/users/makeAdmin/'+id;
   return this.http.get(url)
 }
 
 getRefreshToken(token:any):Observable<any>{
-const url = 'http://localhost:9000/users/refresh/'+token;
+const url = api.backend+'/users/refresh/'+token;
 return this.http.get(url)
 }
 }

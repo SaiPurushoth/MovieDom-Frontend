@@ -85,6 +85,7 @@ for(let j=0;j<this.rows.length;j++ )
     this.reservationservice.book(this.seats).subscribe(
 
       res=>{this.reservationservice.setBookingInfo(res)
+        this.notifyService.showSuccess("Your Seats are Booked","SUCCESS")
         this.route.navigate(['/details/booked'])
       },
       error=>{this.notifyService.showError("Try to do it again", "ERROR"),

@@ -4,7 +4,7 @@ import { NotificationService } from 'src/app/services/notification.service';
 import { NavbarServiceService } from 'src/app/services/navbar-service.service';
 import { ReservationServiceService } from 'src/app/services/reservation-service.service';
 import { UserServiceService } from 'src/app/services/user-service.service';
-
+import {GoogleLoginProvider, SocialAuthService, } from 'angularx-social-login';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -12,7 +12,7 @@ import { UserServiceService } from 'src/app/services/user-service.service';
 })
 export class RegisterComponent implements OnInit {
 name=""
-  constructor(private usrService:UserServiceService,private route:Router,private navservice:NavbarServiceService,private reservationservice:ReservationServiceService,private notifyService:NotificationService) { }
+  constructor(private usrService:UserServiceService,private route:Router,private navservice:NavbarServiceService,private reservationservice:ReservationServiceService,private notifyService:NotificationService,private authservice:SocialAuthService) { }
   username:any
   emailid:any
   userpassword:any
@@ -30,5 +30,12 @@ name=""
         this.notifyService.showError("Enter details correctly", "ERROR")}
     
     )
+    }
+
+    signinwithgoogle(){
+   this.authservice.signIn(GoogleLoginProvider.PROVIDER_ID)
+   this.authservice.authState.subscribe(
+     res=>{console.log(res)}
+   )
     }
 }
