@@ -13,7 +13,6 @@
 <body>
 <div class="scroll">
     <div class="theatre">
-  
         <div class="cinema-seats left" >
           <div class="cinema-row row-1" *ngFor="let it of columns">
             <div class="seat" style="color:white;font-size: small;" *ngFor="let item of rows"  (click)="select(item,it,true)" [class.blocked]="cstatus[item+it]" [class.active]="status[item][it]" >{{item+""+it}}</div>

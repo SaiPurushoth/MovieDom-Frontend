@@ -12,6 +12,7 @@ body {
     display: flex;
     flex-direction: column;
     margin: auto;
+    margin-bottom: 3%;
     align-items: center;
     background-color:lightcoral;
     border-radius: 15px;
@@ -69,7 +70,7 @@ h3{
     background-color:salmon;
     border: 2px solid crimson !important;
 }
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 400px) {
     .container{
         margin: auto;
         width: 300px;

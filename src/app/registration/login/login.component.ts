@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   login(email:string,password:string){
     this.usrService.loginUser(email,password).subscribe(
       res=>{ localStorage.setItem('id',res.id)
-
+     console.log(res)
         localStorage.setItem('role',res.role)
         localStorage.setItem('token',res.token)
         localStorage.setItem('refreshToken',res.refreshToken)
@@ -29,7 +29,9 @@ export class LoginComponent implements OnInit {
         this.notifyService.showSuccess("successfully logged-in !!", "WELCOME")
         this.route.navigate(['/home'])
     },
-    error=>{this.notifyService.showError("Incorrect Details", "ERROR")}
+    error=>{
+      console.log(error)
+      this.notifyService.showError("Incorrect Details", "ERROR")}
    
     )
     

@@ -9,7 +9,7 @@ button{
     text-align: center;
 }
 .sub-main{
-    width: 30%;
+    width: 100%;
     margin: auto;
 
     margin-top: 8%;
@@ -88,14 +88,14 @@ tr{
         text-align: center;
     }
     .sub-main{
-        width: 30%;
+        width: 100%;
         margin: auto;
     
         margin-top: 20%;
         margin-bottom: 20%;
       }
   } 
-  @media screen and (max-width: 380px) {
+  @media screen and (max-width: 400px) {
     footer {
       display: block;
     }
@@ -106,8 +106,9 @@ tr{
         text-align: center;
     }
     .sub-main{
-        width: 30%;
-        margin: 25%;
+        width: 100%;
+        margin: auto;
+    
         margin-top: 20%;
         margin-bottom: 20%;
       }

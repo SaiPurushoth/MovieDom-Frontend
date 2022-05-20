@@ -144,3 +144,8 @@ header {
         cursor: pointer;
     }
 }
+@media print {
+    header{
+      display:none;
+    }
+  }

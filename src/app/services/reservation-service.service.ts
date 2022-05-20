@@ -109,6 +109,6 @@ reserved(){
 }
 deleteReservation(id:any){
   const url = api.backend+"/reservations/delete/"+id;
-  return this.http.get(url)
+  return this.http.delete(url)
 }
 }

@@ -1,5 +1,5 @@
 <h1>Booking Details</h1>
-
+<div class="loader"  *ngIf="!bookinfo"></div>
 <div class="row" *ngIf="bookinfo" >
     <div class="column" >
       <div class="card">
@@ -55,7 +55,7 @@
           <h3>Seats Booked : <span>{{bookinfo.seats}}</span></h3>
           <h3>Total Amount : <span>{{bookinfo.total | currency:'INR'}}</span></h3> -->
         </div>
-        <button id="book" >print</button>
+        <button id="book" onclick="window.print();">print</button>
       </div>
   </div>
   </div>

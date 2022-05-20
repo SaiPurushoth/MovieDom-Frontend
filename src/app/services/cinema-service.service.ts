@@ -89,6 +89,6 @@ updateCinema(name:any,city:any,ticketPrice:any,rows:any,columns:any,movie:any,st
 deleteCinema(id:any)
 {
   const url = api.backend+'/cinemas/delete/'+id;
-  return this.http.get(url); 
+  return this.http.delete(url); 
 }
 }

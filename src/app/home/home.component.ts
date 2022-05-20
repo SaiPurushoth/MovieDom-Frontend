@@ -47,9 +47,6 @@ export class HomeComponent implements OnInit {
   }
 
  
-
-
- 
   selectEvent(item:any) {
 
     this.city=item
@@ -66,15 +63,21 @@ export class HomeComponent implements OnInit {
 
 search(dat:any)
 {
+  const givendate=new Date(dat).toISOString().substring(0,10)
+  const today=new Date().toISOString().substring(0,10)
+  if(givendate >= today){
 this.date=dat
   this.city=this.city.toLowerCase()
  this.cinemaservice.searchCinema(this.city,dat).subscribe(
   res=>{this.cinemas=res},
   error=>{this.notifyService.showError("Try Again", "ERROR")
 this.route.navigate(['/home'])}
-
-
  )
+  }
+  else
+  {
+    this.notifyService.showError("Date Invalid", "ERROR")
+  }
 }
 
 
