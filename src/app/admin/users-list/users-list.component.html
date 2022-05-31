@@ -1,7 +1,9 @@
-<h1 style="text-align: center;">User Lists</h1>
-<div class="loader"  *ngIf="!list;"></div>
-<div class="row" *ngIf="list.length>0; else elseblock">
-    <div class="column" *ngFor="let item of list" >
+
+<div class="loader"  *ngIf="!listusers;"></div>
+<h2 style="text-align:center ;">Users</h2>
+<div class="row" *ngIf="listusers.length>0; else elseblock">
+
+    <div class="column" *ngFor="let item of listusers" >
       <div class="card">
             <tr style="text-align: center;">
                 <td >
@@ -17,9 +19,37 @@
           <button id="book" style="margin-left: 1%;" (click)="makeAdmin(item.id)">Make Admin</button>
         </td>
         </tr>
+        <tr >
+          <button  id="check" (click)="makeAdmin(item.id)">Make Admin</button>
+        </tr>
         </div>
   </div>
   </div>
+  <h2 style="text-align:center ;">Admin</h2>
+  <div class="row" *ngIf="listadmin.length>0; else elseblock">
+
+      <div class="column" *ngFor="let item of listadmin" >
+        <div class="card">
+              <tr style="text-align: center;">
+                  <td >
+            <h3>User Name: <span style="color: crimson;">{{item.name | titlecase}}</span></h3> 
+                  </td>
+          <td>
+            <h3>User Email : <span style="color: crimson;">{{item.email  }}</span></h3>
+          </td>
+          <td>
+            <h3>User Phone: <span style="color: crimson;">{{item.phone}}</span></h3>
+          </td>
+          <td>
+            <button id="book" style="margin-left: 1%;" (click)="removeAdmin(item.id)">remove Admin</button>
+          </td>
+          </tr>
+          <tr >
+            <button  id="check" (click)="makeAdmin(item.id)">Make Admin</button>
+          </tr>
+          </div>
+    </div>
+    </div>
   <ng-template #elseblock >
-    <h1 style="text-align: center;">Cannot Show Users</h1>
+    <h1 style="text-align: center;">No data Found</h1>
   </ng-template>

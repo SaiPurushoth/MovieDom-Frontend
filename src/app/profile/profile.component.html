@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <title>Update Form</title>
   </head>
 
@@ -14,16 +15,20 @@
         <h2 style="color: black;">Updation</h2>
         <form action="" #userForm="ngForm">
             <h3 style="color: black;">Name</h3>
-            <input type="text" name="username" id="username" placeholder="Enter Name" #name value="{{user.name}}" 
+            <input type="text" name="username" id="username" placeholder="Enter Name" #name   [(ngModel)]="username" [class.invalid]="!userForm.form.controls['username']?.valid && userForm.form.controls['username']?.touched"
             required>
+            <small *ngIf="!userForm.form.controls['username']?.valid && userForm.form.controls['username']?.touched">Please Provide Valid Name</small>
             <h3 style="color: black;">Email</h3>
-            <input type="email"  class="form-control" name="email" id="email" placeholder="Enter Email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email value="{{user.email}}"  
+            <input type="email"  class="form-control" name="email" id="email" placeholder="Enter Email"  [(ngModel)]="emailid" [class.invalid]="!userForm.form.controls['email']?.valid && userForm.form.controls['email']?.touched"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email  
             required> 
+            <small *ngIf="!userForm.form.controls['email']?.valid && userForm.form.controls['email']?.touched">Please Provide Valid Email</small>
             <h3 style="color: black;">Password</h3>
-            <input type="password" name="password"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" id="password" placeholder="Enter Password"    required #password> 
+            <input type="password" name="password"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" id="password" placeholder="Enter Password"   [(ngModel)]="userpassword" [class.invalid]="!userForm.form.controls['password']?.valid && userForm.form.controls['password']?.touched"  required #password> 
+            <span [class]="show_eye ? 'uil uil-eye' : 'uil uil-eye-slash'"  (click)="password.type=password.type=='password'?'text':'password'" (click)="showpass()"></span>
+            <small style="margin-top:3%" *ngIf="!userForm.form.controls['password']?.valid && userForm.form.controls['password']?.touched">Password should contain At least 1 Uppercase, At least 1 Lowercase, At least 1 Number, At least 1 Symbol</small>
             <h3 style="color: black;">Phone</h3>
-            <input type="tel" name="phone" pattern="^\d{10}$" id="phone" placeholder="Enter Phone no" value="{{user.phone}}"  required #phone>
-
+            <input type="tel" name="phone" pattern="^\d{10}$" id="phone" placeholder="Enter Phone no"  [(ngModel)]="userphone" [class.invalid]="!userForm.form.controls['phone']?.valid && userForm.form.controls['phone']?.touched"  required #phone>
+            <small *ngIf="!userForm.form.controls['phone']?.valid && userForm.form.controls['phone']?.touched">Please Provide Valid Phone No</small>
             <div class="btns">
                 <button type="submit" (click)="update(name.value,email.value,password.value,phone.value)">Update</button>
             </div>

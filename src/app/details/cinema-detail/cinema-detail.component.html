@@ -1,12 +1,13 @@
 
-<h1>Cinema Details</h1>
+<h1 style="text-align:center ;">Cinema Details</h1>
 <div class="loader"  *ngIf="!cinemaInformation"></div>
 
 <div class="row" *ngIf="cinemaInformation">
    <div class="column" >
      <div class="card">
-       <img src={{cinemaInformation.image}} alt="Aatar" style="width:100%">
+
        <div class="container" style="text-align: center;">
+        <img src={{cinemaInformation.image}} alt="Aatar" style="width:100%">
          <h1 style="color:crimson">{{cinemaInformation.name | titlecase}}</h1> 
          <h3>Ticket Price : <span>{{cinemaInformation.ticketPrice | currency:'INR'}}</span></h3> 
          <h3>City : <span>{{cinemaInformation.city | titlecase}}</span></h3>

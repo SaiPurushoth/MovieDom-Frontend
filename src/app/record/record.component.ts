@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotificationService } from '../services/notification.service';
 import { ReservationServiceService } from '../services/reservation-service.service';
+import { UserServiceService } from '../services/user-service.service';
 
 @Component({
   selector: 'app-record',
@@ -11,11 +12,27 @@ import { ReservationServiceService } from '../services/reservation-service.servi
 export class RecordComponent implements OnInit {
 
   list:any
-  constructor(private reservationservice:ReservationServiceService,private route:Router,private notifyservice:NotificationService) { }
+  amt:any=0
+  username:any
+  constructor(private reservationservice:ReservationServiceService,private route:Router,private notifyservice:NotificationService,private userservice:UserServiceService) { }
 
   ngOnInit(): void {
+    this.userservice.getUser().subscribe(
+      res=>{
+         this.username=res
+      },
+      error=>{
+        console.log(error)
+        this.notifyservice.showError("Try Again", "ERROR")
+      this.route.navigate(['/home'])}
+    )
     this.reservationservice.records().subscribe(
-      res=>{this.list=res},
+      res=>{this.list=res
+        for(let i of this.list)
+        {
+          this.amt=this.amt+i.total
+        }
+      },
       error=>{
         console.log(error)
         this.notifyservice.showError("Try Again", "ERROR")

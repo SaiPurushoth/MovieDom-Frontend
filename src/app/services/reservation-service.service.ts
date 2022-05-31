@@ -99,7 +99,7 @@ return this.availableseats
   }
 
 bookedseats(){
-  const url = api.backend+"/reservations/booked/"+this.theaterId;
+  const url = api.backend+"/reservations/booked/"+this.theaterId+"/"+this.dateformovie;
   return this.http.get(url)
 }
 

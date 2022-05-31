@@ -109,7 +109,7 @@ header {
     .menu ul {
         display: block;
         max-height: 0;
-    	overflow: hidden;
+    	overflow: scroll;
     	-webkit-transition: max-height 0.3s;
     	-moz-transition: max-height 0.3s;
         -ms-transition: max-height 0.3s;

@@ -13,10 +13,20 @@ import {GoogleLoginProvider, SocialAuthService, } from 'angularx-social-login';
 export class RegisterComponent implements OnInit {
 name=""
   constructor(private usrService:UserServiceService,private route:Router,private navservice:NavbarServiceService,private reservationservice:ReservationServiceService,private notifyService:NotificationService,private authservice:SocialAuthService) { }
+  show_eye:boolean=false
   username:any
   emailid:any
   userpassword:any
   userphone:any
+  showpass(){
+    if(this.show_eye==false)
+    {
+    this.show_eye=true}
+    else
+    {
+      this.show_eye=false
+    }
+  }
   ngOnInit(): void {
   }
   register(name:string,email:string,password:string,phone:string){

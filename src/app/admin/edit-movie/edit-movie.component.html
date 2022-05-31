@@ -1,41 +1,42 @@
+<fieldset></fieldset>
 <div class="container">  
-    <form id="contact" >
+    <form id="contact"  #userForm="ngForm">
       <h3>Edit Movies</h3>
       <h5>Title:</h5>
       <fieldset>
-        <input value="{{list.title}}" placeholder="Title of Movie" type="text" tabindex="1" required autofocus #title>
+        <input  placeholder="Title of Movie" type="text" tabindex="1" required autofocus #title name="moviename" [(ngModel)]="moviename" [class.invalid]="!userForm.form.controls['moviename']?.valid && userForm.form.controls['moviename']?.touched">
       </fieldset>
       <h5>Language:</h5>
       <fieldset>
-        <input value="{{list.language}}" placeholder="Language of Movie" type="text" tabindex="2" required #language>
+        <input  placeholder="Language of Movie" type="text" tabindex="2" required #language name="movielan" [(ngModel)]="movielan" [class.invalid]="!userForm.form.controls['movielan']?.valid && userForm.form.controls['movielan']?.touched">
       </fieldset>
       <h5>Genere:</h5>
       <fieldset>
-        <input value="{{list.genere}}" placeholder="Genere of Movie" type="text" tabindex="2" required #genere>
+        <input  placeholder="Genere of Movie" type="text" tabindex="2" required #genere  name="moviegen" [(ngModel)]="moviegen" [class.invalid]="!userForm.form.controls['moviegen']?.valid && userForm.form.controls['moviegen']?.touched">
       </fieldset>
       <h5>Cast:</h5>
       <fieldset>
-        <input value="{{list.cast}}" placeholder="Cast of Movie" type="text" tabindex="2" required #cast> 
+        <input  placeholder="Cast of Movie" type="text" tabindex="2" required #cast  name="moviecast" [(ngModel)]="moviecast" [class.invalid]="!userForm.form.controls['moviecast']?.valid && userForm.form.controls['moviecast']?.touched"> 
       </fieldset>
       <h5>Director:</h5>
       <fieldset>
-        <input value="{{list.director}}" placeholder="Director of Movie" type="text" tabindex="2" required #director> 
+        <input  placeholder="Director of Movie" type="text" tabindex="2" required #director name="moviedir" [(ngModel)]="moviedir" [class.invalid]="!userForm.form.controls['moviedir']?.valid && userForm.form.controls['moviedir']?.touched"> 
       </fieldset>
       <h5>Description:</h5>
       <fieldset>
-        <textarea value="{{list.description}}" placeholder="Description of Movie" tabindex="5" required #description></textarea>
+        <textarea  placeholder="Description of Movie" tabindex="5" required #description name="moviedes" [(ngModel)]="moviedes" [class.invalid]="!userForm.form.controls['moviedes']?.valid && userForm.form.controls['moviedes']?.touched"></textarea>
       </fieldset>
       <h5>Duration:(mins)</h5>
       <fieldset>
-        <input value="{{list.duration}}" placeholder="Movie Duration of Movie" type="number" tabindex="3" required #duration>
+        <input placeholder="Movie Duration of Movie" type="number" tabindex="3" required #duration [(ngModel)]="moviedur" [class.invalid]="!userForm.form.controls['moviedur']?.valid && userForm.form.controls['moviedur']?.touched">
       </fieldset>
       <h5>Release Date:</h5>
       <fieldset>
-        <input value="{{list.releaseDate | date:'yyyy-MM-dd'}}" placeholder="Release Date of Movie" type="date" tabindex="3" required #releaseDate>
+        <input  placeholder="Release Date of Movie" type="date" tabindex="3" required #releaseDate name="moviedate" [(ngModel)]="moviedate" [class.invalid]="!userForm.form.controls['moviedate']?.valid && userForm.form.controls['moviedate']?.touched">
       </fieldset>
       <h5>Image Url:</h5>
       <fieldset>
-        <input value="{{list.image}}" placeholder="Imaage Url of Movie" type="url" tabindex="4" required #image>
+        <input  placeholder="Imaage Url of Movie" type="url" tabindex="4" required #image name="movieimg" [(ngModel)]="movieimg" [class.invalid]="!userForm.form.controls['movieimg']?.valid && userForm.form.controls['movieimg']?.touched">
       </fieldset>
       <fieldset>
         <button name="submit" type="submit" id="contact-submit" (click)="submit(title.value,language.value,genere.value,cast.value,director.value,description.value,duration.value,releaseDate.value,image.value)" data-submit="...Sending">Submit</button>

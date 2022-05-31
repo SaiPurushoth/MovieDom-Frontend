@@ -22,6 +22,7 @@
     color: white;
   }
 
+
   .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -77,14 +78,14 @@
     .loader {
       border: 16px solid #f3f3f3;
       border-radius: 50%;
-      border-top: 16px solid #3498db;
+      border-top: 16px solid lightcoral;
       width: 120px;
       height: 120px;
       -webkit-animation: spin 2s linear infinite; /* Safari */
       animation: spin 2s linear infinite;
       position: absolute;
-      top: 50%;
-      left: 45%;
+      top: 47%;
+      left: 48%;
       margin: -25px 0 0 -25px;
     }
     
@@ -110,6 +111,7 @@
   .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
+    border-radius: 20px;
   }
   
   .card:hover {
@@ -124,7 +126,10 @@
   span{
     color: crimson;
   }
-  @media screen and (max-width: 380px) {
+  @media screen and (max-width: 400px) {
+    .loader{
+      top:87%
+    }
     .column {
 
       margin-left:0;

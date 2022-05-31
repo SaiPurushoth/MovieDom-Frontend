@@ -10,7 +10,9 @@
   -o-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-
+.invalid{
+  border:2px solid red !important;
+}
 body {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 100;

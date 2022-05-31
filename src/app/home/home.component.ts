@@ -65,7 +65,7 @@ search(dat:any)
 {
   const givendate=new Date(dat).toISOString().substring(0,10)
   const today=new Date().toISOString().substring(0,10)
-  if(givendate >= today){
+  if(givendate>=today){
 this.date=dat
   this.city=this.city.toLowerCase()
  this.cinemaservice.searchCinema(this.city,dat).subscribe(

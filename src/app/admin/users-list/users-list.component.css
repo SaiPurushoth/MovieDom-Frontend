@@ -6,6 +6,9 @@ body{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     padding: 2px 16px;
+    background-color: mintcream;
+    border: 2px solid black;
+    border-radius: 20px;
   }
   
   .card:hover {
@@ -21,9 +24,9 @@ body{
   .column {
     width:95%;
     padding: 0 2px;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
     margin-left: 3%;
-    margin-top: 10px;
+    margin-top: 25px;
   }
   
   .row {margin: 0 -5px;}
@@ -34,7 +37,21 @@ body{
     display: table;
     clear: both;
   }
- 
+ #check{
+   margin-left: 200%;
+   display: none;
+   outline: none;
+   cursor: pointer;
+   font-size: 12.5px;
+   line-height: 20px;
+   font-weight: 600;
+   border-radius: 8px;
+   padding: 14px 24px;
+   border: none;
+   transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+   background: linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%);
+   color: #fff;
+ }
 
   * {
     box-sizing: border-box;
@@ -60,14 +77,14 @@ body{
   .loader {
     border: 16px solid #f3f3f3;
     border-radius: 50%;
-    border-top: 16px solid #3498db;
-    width: 120px;
-    height: 120px;
+    border-top: 16px solid lightcoral;
+    width: 100px;
+    height: 100px;
     -webkit-animation: spin 2s linear infinite; /* Safari */
     animation: spin 2s linear infinite;
     position: absolute;
-    top: 50%;
-    left: 45%;
+    top: 47%;
+    left: 48%;
     margin: -25px 0 0 -25px;
   }
   
@@ -81,3 +98,17 @@ body{
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+  @media screen and (max-width: 700px) {
+    .loader{
+      top:87%
+    }
+    #book{
+      display:none ;
+    }
+    #check{
+      display: block;
+    }
+  }
+
+
+

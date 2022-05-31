@@ -13,7 +13,15 @@ import { NotificationService } from 'src/app/services/notification.service';
 export class AddMoviesComponent implements OnInit {
 
   constructor(private movieservice:MovieServiceService,private route:Router,private notifyservice:NotificationService) { }
-
+ moviename:any
+ movielan:any
+ moviegen:any
+ moviecast:any
+ moviedir:any
+ moviedes:any
+ moviedur:any
+ moviedate:any
+ movieimg:any
   ngOnInit(): void {
     if(localStorage.getItem('role')!='admin')
     {
@@ -26,7 +34,7 @@ export class AddMoviesComponent implements OnInit {
     if(localStorage.getItem('role')=='admin'){
      this.movieservice.addMovie(title,language,genere,cast,director,description,duration,releaseDate,image).subscribe(
        res=>{this.notifyservice.showSuccess("add movies done","SUCCESS")
-         this.route.navigate(['/home'])},
+         this.route.navigate(['/admin/movies'])},
          err=>{
           this.notifyservice.showError("Enter Details Correctly", "ERROR")
           this.route.navigate(['/home'])

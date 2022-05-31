@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking Form</title>
 </head>
-<h3 style="color: black;">Remaining Seats: {{availableseats}}</h3>
-<h3 style="color: black;">Ticket Price: {{price | currency:'INR'}}</h3>
-<h3 id="price" style="color: black;">Total Price: {{total | currency:'INR'}}</h3>
+<h3 style="color: black;">Remaining Seats: <span style="color:crimson ;">{{availableseats}}</span></h3>
+<h3 style="color: black;">Ticket Price: <span style="color:crimson ;">{{price | currency:'INR'}}</span> </h3>
+<h3 id="price" style="color: black;">Total Price: <span style="color:crimson ;">{{total | currency:'INR'}}</span></h3>
 <body>
 <div class="scroll">
     <div class="theatre">
@@ -22,7 +22,15 @@
       </div>
     </div>
 
-
+    <div class="container-fluid">
+        <table>
+            <tr *ngFor="let row of rows">
+                <td *ngFor="let seat of columns">
+                    <div class="seat-select"  (click)="select(row,seat,true)"  [class.seat-disabled]="cstatus[row+seat]" [class.seat-selected]="status[row][seat]" >{{row+''+seat}}</div>
+                </td>
+            </tr>
+        </table>
+    </div>
 
 <!-- 
     <div class="container">
@@ -44,5 +52,7 @@
   
 </body>
 <h1>Screen this way</h1>
+<div style="text-align:center;">
 <button id="book" (click)="book()">Pay</button>
+</div>
 </html>

@@ -6,13 +6,15 @@ button{
     border-radius: 7px;
 }
 .center{
+    padding-top: 1%;
+    padding-bottom: 1%;
     text-align: center;
+background-color:#f0ffff;
+
 }
 .sub-main{
     width: 100%;
     margin: auto;
-
-    margin-top: 8%;
   }
 
   .button-three {
@@ -71,7 +73,6 @@ table{
 }
 #bottom{
     background-color: lightgrey;
-    margin-top: 8%;
     padding-bottom: 1%;
 }
 tr{

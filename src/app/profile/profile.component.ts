@@ -10,16 +10,30 @@ import { UserServiceService } from '../services/user-service.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  show_eye:boolean=false
    user:any
    username:any
    emailid:any
    userpassword:any
    userphone:any
   constructor(private reservationservice:ReservationServiceService,private userservice:UserServiceService,private route:Router,private notifyService:NotificationService) { }
-
+  showpass(){
+    if(this.show_eye==false)
+    {
+    this.show_eye=true}
+    else
+    {
+      this.show_eye=false
+    }
+  }
   ngOnInit(): void {
    this.userservice.getUser().subscribe(
-     res=>{this.user=res},
+     res=>{this.user=res
+      this.username=this.user.name
+      this.emailid=this.user.email
+      this.userphone=this.user.phone
+
+    },
      error=>{this.notifyService.showError("Try Again", "ERROR")
      this.route.navigate(['/home'])}
    )
@@ -30,7 +44,9 @@ export class ProfileComponent implements OnInit {
        res=>{
         this.notifyService.showSuccess("successfully Updated !!", "UPDATE")
          this.route.navigate(['/home'])},
-         error=>{this.notifyService.showError("Incorrect value Entered", "ERROR")}
+         error=>{
+           console.log(error)
+           this.notifyService.showError("Incorrect value Entered", "ERROR")}
          
      )
   }

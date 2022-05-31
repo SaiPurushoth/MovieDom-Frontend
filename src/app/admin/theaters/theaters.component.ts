@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CinemaServiceService } from 'src/app/services/cinema-service.service';
+import { MovieServiceService } from 'src/app/services/movie-service.service';
 import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
@@ -10,7 +11,14 @@ import { NotificationService } from 'src/app/services/notification.service';
 })
 export class TheatersComponent implements OnInit {
   list:any
-  constructor(private cinemaservice:CinemaServiceService,private route:Router,private notifyservice:NotificationService) { }
+  check:any
+  cinema:any
+  data:any=[]
+  keyword = 'name';
+  unique(value:any, index:any, self:any){
+    return self.indexOf(value) === index
+  }
+  constructor(private cinemaservice:CinemaServiceService,private route:Router,private notifyservice:NotificationService,private movieservice:MovieServiceService) { }
 
   ngOnInit(): void {
 
@@ -22,14 +30,51 @@ export class TheatersComponent implements OnInit {
 
    this.cinemaservice.allCinema().subscribe(
      res=>{this.list=res
+      this.check=res
+      let array=[]
+      for(let item of res)
+      {
+
+        array.push(item.name)
+      }
+
+      this.data= array.filter(this.unique)
     }  ,         err=>{
       this.notifyservice.showError("Try Again", "ERROR")
       this.route.navigate(['/home'])
      }
    )
-
-
   }
+  selectEvent(item:any) {
+
+    this.cinema=item
+  }
+ 
+  onChangeSearch(val: string) {
+   this.cinema=""
+  }
+  
+  onFocused(e:any){
+  this.cinema=""
+  }
+search()
+{
+  if(this.cinema==undefined || this.cinema=="")
+  {
+    this.list=this.check
+  }
+  else{
+ this.list=[]
+  for(let item of this.check)
+  {
+   if(item.name==this.cinema)
+   {
+     this.list.push(item)
+   }
+    
+  }
+}
+}
 edit(id:any)
 {
   if(localStorage.getItem('role')=='admin')

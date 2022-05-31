@@ -1,4 +1,7 @@
 <div class="loader"  *ngIf="!list;"></div>
+<div class="head"><h3 id="top" >Username: <span style="color: crimson;">{{username.name | titlecase }}</span></h3>
+  <h3 id="left">Total Amount: <span style="color: crimson;">{{amt | currency:'INR' }}</span></h3>
+</div>
 <div class="row" *ngIf="list.length>0; else elseblock">
     <div class="column" *ngFor="let item of list" >
       <div class="card">

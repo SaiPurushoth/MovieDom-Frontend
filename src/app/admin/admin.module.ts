@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { EditMovieComponent } from './edit-movie/edit-movie.component';
 import { UserReservationComponent } from './user-reservation/user-reservation.component';
-
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 
 
 @NgModule({
@@ -22,7 +22,8 @@ import { UserReservationComponent } from './user-reservation/user-reservation.co
     CommonModule,
     AdminRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AutocompleteLibModule
   ]
 })
 export class AdminModule { }

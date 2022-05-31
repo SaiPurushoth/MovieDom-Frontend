@@ -13,6 +13,7 @@ import { ReservationServiceService } from '../services/reservation-service.servi
 export class ReservationComponent implements OnInit {
 
   constructor(private reservationservice:ReservationServiceService,private route:Router,private notifyService:NotificationService) { }
+  paymentHandler: any = null;
   price:any
   availableseats:any
    seats:any=[]
@@ -25,13 +26,12 @@ export class ReservationComponent implements OnInit {
   cstatus:any=new Array()
    
   ngOnInit(): void {
-
+    this.invokeStripe();
     this.availableseats=this.reservationservice.getAvailableSeats()
     this.price=this.reservationservice.getPrice()
 
   this.rows=this.reservationservice.getRows()
   this.columns=this.reservationservice.getColumns()
-
     this.reservationservice.bookedseats().subscribe(
       res=>{
         this.booked=res
@@ -52,8 +52,6 @@ export class ReservationComponent implements OnInit {
          }
      
         }
-        console.log(this.booked)
-        console.log(this.cstatus)
       }    ,  error=>{this.notifyService.showError("Try Again", "ERROR")
       this.route.navigate(['/home'])}
       
@@ -80,8 +78,22 @@ for(let j=0;j<this.rows.length;j++ )
 }
 
   book(){
-    if(confirm("confirm your total Amount:"+" "+"₹"+this.total))
-    {
+if(this.total<=0)
+{
+  this.notifyService.showError("Please select atleast one seat", "ERROR")
+}
+else{
+    const paymentHandler = (<any>window).StripeCheckout.configure({
+      key: 'pk_test_51L1sL3SHxyIllZneuEOAnOZeOCrS2FgaSJOKctICUtI5ud8bDJGcSoYFRgdNcLmKCieaL3K5Y97WyxDaYXMPBN0W00mbjON8Ug',
+      locale: 'auto',
+      token: function (stripeToken: any) {
+
+        console.log(stripeToken);
+        paymentstripe(stripeToken)
+      },
+    });
+ 
+    const paymentstripe = (stripeToken: any) => {
     this.reservationservice.book(this.seats).subscribe(
 
       res=>{this.reservationservice.setBookingInfo(res)
@@ -92,10 +104,36 @@ for(let j=0;j<this.rows.length;j++ )
       this.route.navigate(['/home'])}
       
     )
-    }
+    };
+ 
+    paymentHandler.open({
+      name: 'MovieDom',
+      description: 'Please pay the amount '+"₹"+this.total,
+      amount: this.total * 100,
+      currency:'INR'
+    });
 
   }
-
+  }
+  invokeStripe() {
+    if (!window.document.getElementById('stripe-script')) {
+      const script = window.document.createElement('script');
+      script.id = 'stripe-script';
+      script.type = 'text/javascript';
+      script.src = 'https://checkout.stripe.com/checkout.js';
+      script.onload = () => {
+        this.paymentHandler = (<any>window).StripeCheckout.configure({
+          key: 'pk_test_51L1sL3SHxyIllZneuEOAnOZeOCrS2FgaSJOKctICUtI5ud8bDJGcSoYFRgdNcLmKCieaL3K5Y97WyxDaYXMPBN0W00mbjON8Ug',
+          locale: 'auto',
+          token: function (stripeToken: any) {
+            console.log(stripeToken);
+          },
+        });
+      };
+ 
+      window.document.body.appendChild(script);
+    }
+  }
 
 
 select(n1:any,n2:any,isselected:any)

@@ -21,6 +21,8 @@ export class AddCinemaComponent implements OnInit {
   noofrows:any
   noofcolumns:any
   imageurl:any
+  showtime:any
+  showdate:any
   unique(value:any, index:any, self:any){
     return self.indexOf(value) === index
   }
@@ -104,13 +106,20 @@ this.cinemaservice.allCinema().subscribe(
 
   submit(name:any,city:any,ticketPrice:any,rows:any,columns:any,movie:any,startAt:any,date:any,image:any){
     if(localStorage.getItem('role')=='admin'){
+      const givendate=new Date(date).toISOString().substring(0,10)
+      const today=new Date().toISOString().substring(0,10)
+      if(givendate>=today){
   this.cinemaservice.addCinema(name,city,ticketPrice,rows,columns,movie,startAt,date,image).subscribe(
     res=>{this.notifyservice.showSuccess("add Cinema done","SUCCESS")
-    this.route.navigate(['/home'])},
+    this.route.navigate(['/admin/theaters'])},
     err=>{
      this.notifyservice.showError("Enter Details Correctly", "ERROR")
     }
   )
+      }
+      else{
+        this.notifyservice.showError("date Invalid", "ERROR")
+      }
     }
 else
 {

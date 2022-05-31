@@ -91,7 +91,10 @@ changeAdmin(id:any){
   const url = api.backend+'/users/makeAdmin/'+id;
   return this.http.get(url)
 }
-
+removeAdmin(id:any){
+  const url = api.backend+'/users/deleteAdmin/'+id;
+  return this.http.get(url)
+}
 getRefreshToken(token:any):Observable<any>{
 
 const url = api.backend+'/users/refresh/'+token;

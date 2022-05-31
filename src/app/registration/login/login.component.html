@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <meta name="viewport" content="width=maximum-scale, initial-scale=1.0">
         <title>Login Form</title>
        
@@ -11,12 +12,14 @@
   <body>
     <div class="container">
         <h2 style="color: black;">Login</h2>
-        <form action="">
+        <form #userForm="ngForm">
             <h3 style="color: black;">Email</h3>
-            <input type="text" name="username" id="username" placeholder="Enter Username" required  #email>
+            <input type="text" name="username" id="username" placeholder="Enter Username" [(ngModel)]="username" [class.invalid]="!userForm.form.controls['username']?.valid && userForm.form.controls['username']?.touched" required  #email>
+            <small  *ngIf="!userForm.form.controls['username']?.valid && userForm.form.controls['username']?.touched">Please provide valid input</small>
             <h3 style="color: black;">Password</h3>
-            <input type="password" name="pass" id="pass" placeholder="Enter Password" required  #password>
-            
+            <input type="password" name="password" id="password" placeholder="Enter Password"  [(ngModel)]="userpassword" [class.invalid]="!userForm.form.controls['password']?.valid && userForm.form.controls['password']?.touched" required  #password>
+            <span [class]="show_eye ? 'uil uil-eye' : 'uil uil-eye-slash'"  (click)="password.type=password.type=='password'?'text':'password'" (click)="showpass()"></span>
+            <small style="margin-top: 3%;" *ngIf="!userForm.form.controls['password']?.valid && userForm.form.controls['password']?.touched">please proviide valid input</small>
            <div class="btns">
             <button type="submit" (click)="login(email.value,password.value)">Login</button>
            </div>

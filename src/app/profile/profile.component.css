@@ -2,9 +2,10 @@ body {
     padding: 0;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: white;
+    background-color:#e1fff0;
     color: white;
-    padding-top: 8vh;
+    padding-top: 6vh;
+    padding-bottom: 2vh;
 }
 
 .container {
@@ -69,6 +70,15 @@ h3{
 .invalid{
     background-color:salmon;
     border: 2px solid crimson !important;
+}
+span{
+    text-align: end;
+    margin-left: 85%;
+    margin-right: 10px;
+    margin-top: -38px;
+    position: relative;
+    z-index: 2;
+    color: black;
 }
 @media screen and (max-width: 400px) {
     .container{

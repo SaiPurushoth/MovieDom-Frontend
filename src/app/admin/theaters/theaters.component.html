@@ -29,14 +29,36 @@
         </div>
   </div>
   </div> -->
+  <div>
+    <form autocomplete=off class="example"  style="margin:auto; width: 50%;">
+        <!-- <input type="text" placeholder="Enter City" name="search2" style="margin-right:1%" #sch > -->
+        <div class="ng-autocomplete" style="width: 80%; margin-right:1%" >
+          <ng-autocomplete  [data]="data" [searchKeyword]="keyword" (selected)='selectEvent($event)' placeholder="Search Cinema"
+              (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate"
+              [notFoundTemplate]="notFoundTemplate" #sch>
+          </ng-autocomplete>
+      
+          <ng-template #itemTemplate let-item>
+              <a [innerHTML]="item | titlecase"></a>
+          </ng-template>
+      
+          <ng-template #notFoundTemplate let-notFound>
+              <div [innerHTML]="notFound"></div>
+          </ng-template>
+        </div>
+  
+        <button type="submit" (click)="search()"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
 
   <div class="loader"  *ngIf="!list;"></div>
   <div class="row">
     <div class="column" *ngFor="let item of list">
       <div class="card">
-        <img src={{item.image}} alt="Avatar" style="width:100%">
+
         <div class="container" style="text-align: center;">
-          <h3>date : <span>{{item.date| date}}</span></h3> 
+          <img src={{item.image}} alt="Avatar" style="width:100%">
+          <h3>Date : <span>{{item.date| date}}</span></h3> 
           <h3>Theater Name : <span>{{item.name | titlecase}}</span></h3> 
           <h3>Movie Name : <span>{{item.movieName  | titlecase}}</span></h3>
           <h3>Show Time : <span>{{item.startAt}}</span></h3>

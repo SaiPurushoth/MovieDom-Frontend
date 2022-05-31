@@ -1,10 +1,10 @@
-<h1>Movie Details</h1>
+<h1 style="text-align:center ;">Movie Details</h1>
 <div class="loader"  *ngIf="!movieInformation"></div>
 <div class="row" *ngIf="movieInformation">
     <div class="column" >
       <div class="card">
-        <img src={{movieInformation.image}} alt="Avatar" style="width:100%">
         <div class="container" style="text-align: center;">
+          <img src={{movieInformation.image}} alt="Avatar" style="width:100%">
           <h1 style="color:crimson">{{movieInformation.title | titlecase}}</h1> 
           <h3>Movie Language : <span>{{movieInformation.language | titlecase }}</span></h3> 
           <h3>Movie Genere : <span>{{movieInformation.genere | titlecase}}</span></h3>
